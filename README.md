@@ -1,2 +1,3 @@
 # Bài tập lớn môn: Phát triển dự án phần mềm
 # Chủ đề: pending...
+If you are on the main branch then switch to the master branch with the following command: git checkout master
