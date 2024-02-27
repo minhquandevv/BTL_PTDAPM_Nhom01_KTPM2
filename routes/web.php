@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Auth\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +13,13 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-//Route Home
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-//Route Auth
-Route::get('/login', [AuthController::class, 'index'])->name('login');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+
+Route::resource('phong', \App\Http\Controllers\PhongController::class);
+
+
+
+
