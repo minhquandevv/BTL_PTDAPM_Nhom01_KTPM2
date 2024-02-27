@@ -19,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource('phong', \App\Http\Controllers\PhongController::class);
+Route::get('taikhoan', [\App\Http\Controllers\PhongController::class, 'index'])->name('frontend.phong.index');
+Route::resource('taikhoan', \App\Http\Controllers\TaiKhoanController::class);
+Route::get('taikhoan', [\App\Http\Controllers\TaiKhoanController::class, 'index'])->name('frontend.taikhoan.index');
+Route::resource('danhgia', \App\Http\Controllers\DanhGiaController::class);
+Route::resource('hoadon', \App\Http\Controllers\HoaDonController::class);
+Route::resource('khachhang', \App\Http\Controllers\KhachHangController::class);
 
 
 

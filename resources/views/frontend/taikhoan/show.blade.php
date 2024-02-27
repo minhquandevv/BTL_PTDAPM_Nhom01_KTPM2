@@ -8,8 +8,19 @@
     <link href="{{asset("bootstrap.css")}}" rel="stylesheet">
     <title>Document</title>
 </head>
-<body class="container">
-search
+<body>
+<div class="container">
+    <h1 class="text-center">Thông tin chi tiết về tai khoan</h1>
+    <div class="mt-5">
+        MaTK: {{ $taikhoan->MaTK}}
+        <br/>
+        MaLoaiTK:{{ $taikhoan->MaLoaiTK}}
+        <br/>
+        TenDangNhap:{{ $taikhoan->TenDangNhap}}
+    </div>
+
+    <a class="btn btn-info mt-4" href="{{ route('taikhoan.index') }}">Quay lại danh sách phòng</a>
+</div>
 <script src="{{asset("bootstrap.bundle.min.js")}}"></script>
 </body>
 </html>

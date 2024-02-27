@@ -20,7 +20,7 @@ class KhachHang extends Model
         'Email',
         'SoDienThoai',
     ];
-
+    protected $primaryKey = 'MaKH';
     // Add timestamps if needed
     public $timestamps = true;
 }

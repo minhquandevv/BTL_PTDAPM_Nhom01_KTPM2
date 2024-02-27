@@ -25,6 +25,7 @@ class NhanVien extends Model
 
     // Add timestamps if needed
     public $timestamps = true;
+    protected $primaryKey = 'MaNV';
 
     // Define the relationship with QUANLY table
     public function quanly()

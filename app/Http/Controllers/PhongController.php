@@ -12,21 +12,21 @@ class PhongController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->search)
-        {
-            $searchQuery = $request->search;
+        $phongs = $this->searchPhongs($request->search);
+        $phongs->appends(['search' => $request->search]);
+        return view('frontend.phong.index', compact('phongs'));
+    }
 
-        $phongs = Phong::where('TenPhong', 'like', "%{$searchQuery}%")
-            ->orWhere('GioiThieuPhong', 'like', "%{$searchQuery}%")
-            ->orWhere('TinhTrang', 'like', "%{$searchQuery}%")
-            ->paginate(15);
+    private function searchPhongs($searchQuery)
+    {
+        if ($searchQuery) {
+            return Phong::where('TenPhong', 'like', "%{$searchQuery}%")
+                ->orWhere('GioiThieuPhong', 'like', "%{$searchQuery}%")
+                ->orWhere('TinhTrang', 'like', "%{$searchQuery}%")
+                ->paginate(15);
+        } else {
+            return Phong::paginate(15);
         }
-        else
-        {
-            $phongs = Phong::paginate(15);
-        }
-
-        return view('phong.index', compact('phongs'));
     }
 
     /**
@@ -34,7 +34,7 @@ class PhongController extends Controller
      */
     public function create()
     {
-        return view('phong.create');
+        return view('frontend.phong.create');
     }
 
     /**
@@ -70,7 +70,7 @@ class PhongController extends Controller
             'DonGia' => $validatedData['DonGia'],
             'TinhTrang' => $validatedData['TinhTrang'],
         ]);
-        return view('phong.show', compact('phong'));
+        return view('frontend.phong.show', compact('phong'));
     }
 
     /**
@@ -78,7 +78,7 @@ class PhongController extends Controller
      */
     public function show(Phong $phong)
     {
-        return view('phong.show', compact('phong'));
+        return view('frontend.phong.show', compact('phong'));
     }
 
     /**
@@ -86,7 +86,7 @@ class PhongController extends Controller
      */
     public function edit(Phong $phong)
     {
-        return view('phong.edit', compact('phong'));
+        return view('frontend.phong.edit', compact('phong'));
     }
 
     /**
@@ -117,7 +117,7 @@ class PhongController extends Controller
 
         $phong->update($validatedData);
 
-        return redirect()->route('phong.show', $phong);
+        return redirect()->route('frontend.phong.show', $phong);
     }
 
     /**
@@ -127,6 +127,6 @@ class PhongController extends Controller
     public function destroy(Phong $phong)
     {
         $phong->delete(); // Delete the record
-        return redirect()->route('phong.index')->with('success', 'Phong deleted successfully.');
+        return redirect()->route('frontend.phong.index')->with('success', 'Phong deleted successfully.');
     }
 }

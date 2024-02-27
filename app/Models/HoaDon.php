@@ -19,6 +19,7 @@ class HoaDon extends Model
         'NgayTraPhong',
         'TinhTrangHoaDon',
     ];
+    protected $primaryKey = 'MaHD';
 
     // Add timestamps if needed
     public $timestamps = true;

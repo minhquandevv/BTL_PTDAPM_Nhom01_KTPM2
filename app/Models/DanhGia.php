@@ -20,7 +20,7 @@ class DanhGia extends Model
 
     // Add timestamps if needed
     public $timestamps = true;
-
+    protected $primaryKey = 'MaDG';
     // Define the relationships with KHACHHANG and PHONG tables
     public function khachhang()
     {

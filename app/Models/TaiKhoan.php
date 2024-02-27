@@ -25,4 +25,5 @@ class TaiKhoan extends Model
     {
         return $this->belongsTo(LoaiTaiKhoan::class, 'MaLoaiTK');
     }
+    protected $primaryKey = 'MaTK';
 }
