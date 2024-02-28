@@ -1,28 +1,28 @@
 <section class="h-100 w-100">
-    <form class="container mx-auto bg-white h-100">
+    <form class="container mx-auto bg-white" style="height:max-content">
         <div class="d-flex my-5">
             <div class="position-absolute" style="top:113px;left:36px">
                 <i class="fa-solid fa-angle-left fa-2xl"></i>
             </div>
-            <h2>Biệt thự tại Pacifica, California, Hoa Kỳ</h2>
+            <h2 class="fw-bold">Biệt thự tại Pacifica, California, Hoa Kỳ</h2>
         </div>
         <div class="d-flex w-100 mb-5">
             <div class="w-50 pe-5">
                 <img class="card-img-top rounded-lg" src="https://i.upanh.org/2024/02/27/image_body44710f111b17e14a.png"
                     alt="" style="width:560px,height=420px;" />
             </div>
-            <div>
-                <div>
-                    <img class="card-img-top rounded-lg me-5 mb-4" src="https://img.upanh.tv/2024/02/27/image-9.png"
-                        alt="" style="width: 280px; height:225px" />
-                    <img class="card-img-top rounded-lg mb-4" src="https://img.upanh.tv/2024/02/27/image-11.png" alt=""
-                        style="width: 280px; height:225px " />
+            <div class="w-50">
+                <div class="w-100 mb-4">
+                    <img class="card-img-top rounded-lg me-5 " src="https://img.upanh.tv/2024/02/27/image-9.png" alt=""
+                        style="width: 309px; height:226px" />
+                    <img class="card-img-top rounded-lg " src="https://img.upanh.tv/2024/02/27/image-11.png" alt=""
+                        style="width: 309px; height:226px " />
                 </div>
-                <div>
+                <div class="w-100">
                     <img class="card-img-top rounded-lg me-5" src="https://img.upanh.tv/2024/02/27/image-10.png" alt=""
-                        style="width: 280px; height:225px" />
+                        style="width: 309px; height:226px" />
                     <img class="card-img-top rounded-lg" src="https://img.upanh.tv/2024/02/27/image-12.png" alt=""
-                        style="width: 280px; height:225px" />
+                        style="width: 309px; height:226px" />
                 </div>
             </div>
         </div>
@@ -31,19 +31,23 @@
                 <div>
                     <h1 class="fw-bold">Thông tin phòng</h1>
                 </div>
-                <div class="row d-flex m-5 ">
-                    <div class="col-lg-4 text-start">
-                        <p class="fw-bold fs-3">Mã phòng:</p>
-                        <p class="fw-bold fs-3">Tên phòng:</p>
-                        <p class="fw-bold fs-3">Giới thiệu phòng:</p>
-                        <p class="fw-bold fs-3">Trạng thái phòng:</p>
+                <div class="container my-5 ">
+                    <div class="d-flex text-start my-3">
+                        <h3 class="col-lg-4 fw-medium">Mã phòng:</h3>
+                        <h3 class="col-lg-8 fw-medium">MP003</h3>
                     </div>
-                    <div class="col-lg-8 text-start">
-                        <p class="fw-bold fs-3">MP003</p>
-                        <p class="fw-bold fs-3">Biệt thự tại Pacifica</p>
-                        <p class="fw-bold fs-3">Nằm ở Pacifica, một thị trấn ven biển cổ
-                            kính ngay phía nam San Francisco, căn h...</p>
-                        <p class="fw-bold fs-3">Trống</p>
+                    <div class="d-flex text-start my-3">
+                        <h3 class="col-lg-4 fw-medium">Tên phòng:</h3>
+                        <h3 class="col-lg-8 fw-medium">Biệt thự tại Pacifica</h3>
+                    </div>
+                    <div class=" d-flex text-start my-3">
+                        <h3 class="col-lg-4 fw-medium">Giới thiệu phòng:</h3>
+                        <h3 class="col-lg-8 fw-medium">Nằm ở Pacifica, một thị trấn ven biển cổ
+                            kính ngay phía nam San Francisco, căn h...</h3>
+                    </div>
+                    <div class="d-flex text-start my-3">
+                        <h3 class="col-lg-4 fw-medium">Trạng thái phòng:</h3>
+                        <h3 class="col-lg-8 fw-medium">Trống</h3>
                     </div>
                 </div>
             </div>

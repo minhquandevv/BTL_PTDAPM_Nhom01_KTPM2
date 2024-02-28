@@ -15,7 +15,7 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::get('/', function () {
-    return view('/frontend/home/layout');
+    return view('/frontend/home/index');
 });
 //Route Home
 Route::get('/home', [HomeController::class, 'index'])->name('home');

@@ -14,7 +14,7 @@
                 <div class="d-flex justify-content-center mx-4 mt-4">
                     <div class="my-3">
                         <a href="#">
-                            <img class="card-img-top rounded-lg" src="images/img-1.svg" alt="" style="width: 415px; height:326px" />
+                            <img class="card-img-top rounded-lg" src="  " alt="" style="width: 415px; height:326px" />
                         </a>
                     </div>
                 </div>

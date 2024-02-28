@@ -13,19 +13,20 @@
 <body class="home_index " style="background-color:#FDE7FB">
     <nav class="navbar navbar-expand-lg navbar-light" style="height: 80px;">
         <div class="container">
-            <img src="/public/images/logo.jpg" alt="" height="40px">
-            <a class="navbar-brand" href="#">AIRHOME</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="d-flex col-3">
+                <a href="/home" class="d-flex">
+                    <img class="card-img-top-logo rounded-lg " src="images/logo-home.svg" alt="/" style="height:41px" />
+                    <img class="card-img-top-text rounded-lg" src="images/text_home.svg" alt="/"
+                        style="width:141px;height:41px" />
+                </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link fs-4 fw-medium" href="#">Đăng nhập</a>
+                    <li class="nav-item me-4">
+                        <a class="nav-link fs-4 text-black fw-medium" href="#">Đăng nhập</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-4 fw-medium" href="#">Đăng ký</a>
+                        <a class="nav-link fs-4 text-black fw-medium" href="#">Đăng ký</a>
                     </li>
                 </ul>
             </div>
@@ -38,12 +39,12 @@
         <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);height: 830px;">
             <div class="d-flex justify-content-center align-items-center flex-column h-50">
                 <div class="text-white">
-                    <h2 class="mb-3 top-0 w-75">Chào mừng bạn đến với AirHome</h2>
+                    <h1 class="mb-3 top-0 w-75 " style="padding-left:90px">Chào mừng bạn đến với AirHome</h1>
                 </div>
                 <div>
                     <a data-mdb-ripple-init
-                        class="btn btn-outline-light btn-lg btn-bg-light bg-secondary border border-0 rounded-pill"
-                        href=" #!" role="button">Đặt phòng ngay</a>
+                        class="btn btn-outline-light btn-lg btn-bg-light bg-secondary border border-0 rounded-pill fs-2 p-3 position-absolute"
+                        href=" #!" role="button" style="top:700px;right:200px">Đặt phòng ngay</a>
                 </div>
             </div>
         </div>

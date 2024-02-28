@@ -1,5 +1,5 @@
-<section class="h-100">
-    <form class="container mx-auto bg-white " style="height:100vh">
+<section>
+    <form class="container mx-auto bg-white" style="height:100vh">
         <div class="position-absolute" style="top:90px;left:36px">
             <i class="fa-solid fa-angle-left fa-2xl"></i>
         </div>
@@ -22,11 +22,10 @@
                     <h3 class="my-4">Giá Phòng: 6.800.000VND</h3>
                 </div>
                 <div class="col-3 d-flex justify-content-end align-items-center mb-5 ">
-                    <h2 class="text-secondary me-5">Chưa thanh toán</h2>
+                    <h2 class="me-5" style="color:red">Đã hủy</h2>
                 </div>
             </div>
         </div>
-
 
     </form>
 </section>
