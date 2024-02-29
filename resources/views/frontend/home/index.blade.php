@@ -43,7 +43,7 @@
                 <div>
                     <a data-mdb-ripple-init
                         class="btn btn-outline-light btn-lg btn-bg-light bg-secondary border border-0 rounded-pill"
-                        href=" #!" role="button">Đặt phòng ngay</a>
+                        href=" {{ route('home') }} " role="button">Đặt phòng ngay</a>
                 </div>
             </div>
         </div>

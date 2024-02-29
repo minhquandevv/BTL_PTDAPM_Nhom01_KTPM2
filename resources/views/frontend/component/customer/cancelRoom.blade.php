@@ -23,8 +23,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
     <form class="container mx-auto bg-white h-100">
         <div class="d-flex">

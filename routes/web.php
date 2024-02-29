@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\BookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +17,9 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::get('/', function () {
-    return view('/frontend/home/layout');
+    return view('frontend.home.index');
 });
-//Route Home
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-//Route Auth
-Route::get('/login', [AuthController::class, 'index'])->name('login');
+//Route Home (Customer)
+Route::get('/home', [CustomerController::class, 'index'])->name('home');
+
+Route::get('/datPhong', [BookingController::class, 'index'])->name('datPhong');
