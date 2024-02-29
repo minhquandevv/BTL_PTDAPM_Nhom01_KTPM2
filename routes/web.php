@@ -23,3 +23,57 @@ Route::get('/', function () {
 Route::get('/home', [CustomerController::class, 'index'])->name('home');
 
 Route::get('/datPhong', [BookingController::class, 'index'])->name('datPhong');
+
+
+//new
+Route::get('register1', function () {
+    return view('frontend.auth.register.customers.RegisterFirst');
+});
+
+//new
+Route::get('register2', function () {
+    return view('frontend.auth.register.customers.Register2');
+});
+//new
+
+Route::get('completeregister', function () {
+    return view('frontend.auth.register.customers.CompleteRegistration');
+});
+
+//new
+//new
+Route::get('commit', function () {
+    return view('frontend.auth.register.customers.CommitRegister');
+});
+//new
+Route::get('createprofile', function () {
+    return view('frontend.auth.register.customers.CreateProfile');
+});
+//new
+Route::get('createprofile2', function () {
+    return view('frontend.auth.register.customers.CreateProfile2');
+});
+
+//new
+Route::get('createprofile3', function () {
+    return view('frontend.auth.register.customers.CreateProfile3');
+});
+
+//new
+Route::get('createprofile4', function () {
+    return view('frontend.auth.register.customers.CreateProfile4');
+});
+//new
+Route::get('last', function () {
+    return view('frontend.auth.register.customers.LastCreateProfile');
+});
+
+
+//new
+Route::get('mp1', function () {
+    return view('frontend/manage_profile/customers/c_profile');
+});
+//new
+Route::get('completeprofile', function () {
+    return view('frontend/manage_profile/customers/last');
+});
