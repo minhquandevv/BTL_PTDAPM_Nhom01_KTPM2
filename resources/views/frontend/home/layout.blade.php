@@ -8,9 +8,10 @@
 <body>
     <div id="wrapper">
         @include('frontend.component.navbar')
-        @include($templete)
+        @include('template')
         @include('frontend.component.footer')
     </div>
     @include('frontend.component.script')
 </body>
+
 </html>
