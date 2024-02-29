@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('DichVu', function (Blueprint $table) {
             $table->increments('MaDV');
-            $table->string('TenDichVu', 255);
+            $table->string('TenDichVu', 50);
             $table->decimal('GiaDichVu', 18, 2);
             $table->timestamps();
         });

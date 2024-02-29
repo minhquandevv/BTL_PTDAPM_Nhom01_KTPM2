@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('QuanLy', function (Blueprint $table) {
-            $table->increments('MaQL');
-            $table->string('TenQL');
+        Schema::create('Khachhang', function (Blueprint $table) {
+            $table->increments('MaKH');
+            $table->string('TenKH');
             $table->string('CCCD', 20);
             $table->date('NgaySinh');
             $table->string('GioiTinh', 10);
             $table->string('DiaChi', 255);
             $table->string('Email', 255);
+            $table->string("img", 255);
             $table->string('SoDienThoai', 20);
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('managers');
+        Schema::dropIfExists('customers');
     }
 };

@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 return new class extends Migration
 {
     /**
@@ -19,6 +20,7 @@ return new class extends Migration
             $table->string('GioiTinh', 10);
             $table->string('DiaChi', 255);
             $table->string('Email', 255);
+            $table->string("img", 255);
             $table->string('SoDienThoai', 20);
             $table->string('Chucvu', 50);
             $table->unsignedInteger('MaQL');

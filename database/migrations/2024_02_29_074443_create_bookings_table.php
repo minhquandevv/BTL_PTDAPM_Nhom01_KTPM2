@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('HoaDon', function (Blueprint $table) {
-            $table->increments('MaHD');
+        Schema::create('DatPhong', function (Blueprint $table) {
+            $table->increments('MaDatPhong');
             $table->unsignedInteger('MaKH');
-            $table->unsignedInteger('MaNV');
-            $table->unsignedInteger('MaP');
+            $table->unsignedInteger('MaPhong');
             $table->date('NgayDatPhong');
-            $table->date('NgayTraPhong');
-            $table->string('TinhTrangHoaDon', 50);
+            $table->date('NgayCheckIn');
+            $table->date('NgayCheckOut');
+            $table->integer('SoNguoi');
+            $table->string('TinhTrangDatPhong', 50);
+            $table->string('TinhTrangThanhToan', 50);
             $table->foreign('MaKH')->references('MaKH')->on('KhachHang');
-            $table->foreign('MaNV')->references('MaNV')->on('NhanVien');
-            $table->foreign('MaP')->references('MaP')->on('Phong');
-            $table->timestamps();
+            $table->foreign('MaPhong')->references('MaP')->on('Phong');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bills');
+        Schema::dropIfExists('bookings');
     }
 };

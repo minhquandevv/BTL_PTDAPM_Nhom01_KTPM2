@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('TaiKHoan', function (Blueprint $table) {
-            $table->increments('MaTK');
-            $table->unsignedInteger('MaLoaiTK');
-            $table->string('TenDangNhap', 255);
-            $table->string('MatKhau', 255);
-            $table->foreign('MaLoaiTK')->references('MaLoaiTK')->on('LoaiTaiKhoan');
+        Schema::create('LoaiTaiKhoan', function (Blueprint $table) {
+            $table->increments('MaLoaiTK');
+            $table->string('TenLoaiTK', 50);
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('account_types');
     }
 };

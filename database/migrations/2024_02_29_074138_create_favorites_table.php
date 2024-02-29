@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('KhuyenMai', function (Blueprint $table) {
-            $table->increments('MaKM');
-            $table->text('Mota');
-            $table->date('NgayBatDau');
-            $table->date('NgayKetThuc');
+        Schema::create('favorites', function (Blueprint $table) {
+            $table->increments('MaYT');
+            $table->unsignedInteger('MaKH');
             $table->unsignedInteger('MaP');
-            $table->unsignedInteger('MaQL');
+            $table->date('NgayThemVao');
+            $table->foreign('MaKH')->references('MaKH')->on('KhachHang');
             $table->foreign('MaP')->references('MaP')->on('Phong');
-            $table->foreign('MaQL')->references('MaQL')->on('QuanLy');
-            $table->timestamps();
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('promotions');
+        Schema::dropIfExists('favorites');
     }
 };
