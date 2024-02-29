@@ -16,6 +16,15 @@ use App\Http\Controllers\BookingController;
 |
 */
 
+
+//Route::get('/', function () {
+//    return view('/frontend/auth/login/index');
+//});
+//Route Home
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+//Route Auth
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+=======
 Route::get('/', function () {
     return view('frontend.home.index');
 });
@@ -74,3 +83,4 @@ Route::get('mp1', function () {
 Route::get('completeprofile', function () {
     return view('frontend/manage_profile/customers/last');
 });
+
