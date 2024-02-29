@@ -19,7 +19,10 @@ use App\Http\Controllers\BookingController;
 Route::get('/', function () {
     return view('frontend.home.index');
 });
+//Route Home (Customer)
+Route::get('/home', [CustomerController::class, 'index'])->name('home');
 
+Route::get('/datPhong', [BookingController::class, 'index'])->name('datPhong');
 
 
 //new
