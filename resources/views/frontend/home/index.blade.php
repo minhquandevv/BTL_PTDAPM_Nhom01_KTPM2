@@ -43,8 +43,8 @@
                 </div>
                 <div>
                     <a data-mdb-ripple-init
-                        class="btn btn-outline-light btn-lg btn-bg-light bg-secondary border border-0 rounded-pill fs-2 p-3 position-absolute"
-                        href=" #!" role="button" style="top:700px;right:200px">Đặt phòng ngay</a>
+                        class="btn btn-outline-light btn-lg btn-bg-light bg-secondary border border-0 rounded-pill"
+                        href=" #!" role="button">Đặt phòng ngay</a>
                 </div>
             </div>
         </div>

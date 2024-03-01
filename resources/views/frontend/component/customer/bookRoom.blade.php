@@ -1,28 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Room</title>
+</head>
+<body>
 <section class="h-100 w-100">
     <form class="container mx-auto bg-white h-100">
-        <div class="d-flex">
-            <div>
+        <div class="d-flex gap-5 align-items-center">
+            <a href="{{ route('home') }}">
                 <i class="fa-solid fa-angle-left fa-2xl"></i>
-            </div>
+            </a>
             <h2>Xe cắm trại/RV tại Half Moon Bay, California, Hoa Kỳ</h2>
         </div>
-        <div class="d-flex w-100 mb-5">
-            <div class="w-50 pe-5">
+        <div class="d-flex w-100 mb-5 mt-3 justify-content-center ">
+            <div class="pe-5">
                 <img class="card-img-top rounded-lg" src="https://i.upanh.org/2024/02/27/image_body44710f111b17e14a.png"
-                    alt="" style="width:560px,height=420px;" />
+                     alt="" style="width:560px; height : 463px;" />
             </div>
             <div>
                 <div>
                     <img class="card-img-top rounded-lg me-5 mb-4" src="https://img.upanh.tv/2024/02/27/image-9.png"
-                        alt="" style="width: 280px; height:225px" />
+                         alt="" style="width: 280px; height:225px" />
                     <img class="card-img-top rounded-lg mb-4" src="https://img.upanh.tv/2024/02/27/image-11.png" alt=""
-                        style="width: 280px; height:225px " />
+                         style="width: 280px; height:225px " />
                 </div>
                 <div>
                     <img class="card-img-top rounded-lg me-5" src="https://img.upanh.tv/2024/02/27/image-10.png" alt=""
-                        style="width: 280px; height:225px" />
+                         style="width: 280px; height:225px" />
                     <img class="card-img-top rounded-lg" src="https://img.upanh.tv/2024/02/27/image-12.png" alt=""
-                        style="width: 280px; height:225px" />
+                         style="width: 280px; height:225px" />
                 </div>
             </div>
         </div>
@@ -61,34 +71,36 @@
                         <div class="row d-flex">
                             <div class=" col-lg-6 border-end p-4">
                                 <div>
-                                    <span class="fw-light fs-4">Ngày nhận phòng</span>
+                                    <span class=" fs-4">Ngày nhận phòng</span>
                                 </div>
                                 <div>
-                                    <span class="fw-normal fs-4">01/01/2024</span>
+                                    <input type="date" class="date-bookroom border-0 rounded-3 p-3 bg-light" />
                                 </div>
                             </div>
                             <div class="col-lg-6 p-4">
                                 <div>
-                                    <span class="fw-light fs-4">Ngày trả phòng</span>
+                                    <span class="fs-4">Ngày trả phòng</span>
                                 </div>
                                 <div>
-                                    <span class="fw-normal fs-4">01/01/2024</span>
+                                    <input type="date" class="date-bookroom border-0 rounded-3 p-3 bg-light"/>
                                 </div>
                             </div>
                         </div>
                         <div class="border-top p-4">
                             <div class="">
-                                <span class="fw-light fs-4">Số lượng khách</span>
+                                <span class=" fs-4">Số lượng khách</span>
                             </div>
-                            <div>
-                                <span class=" fw-normal fs-4">1</span>
+                            <div class="number-input">
+                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                                <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center m-5">
                         <a href="#"
-                            class="btn btn-primary px-5 py-4 bg-danger text-center text-white rounded-4 cursor-pointer border-0 w-100"
-                            style="background-image: linear-gradient(to right,firebrick 30%, crimson);">
+                           class="btn btn-primary px-5 py-4 bg-danger text-center text-white rounded-4 cursor-pointer border-0 w-100"
+                           style="background-image: linear-gradient(to right,firebrick 30%, crimson);">
                             <h3>Đặt phòng</h3>
                         </a>
                     </div>
@@ -101,3 +113,6 @@
         </div>
     </form>
 </section>
+
+</body>
+</html>

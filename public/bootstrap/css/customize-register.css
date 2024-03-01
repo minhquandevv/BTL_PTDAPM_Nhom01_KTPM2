@@ -1,0 +1,425 @@
+/* Form 1 Register */
+hr#line-custom{
+  border: 1px solid #DDDDDD;
+}
+.gg-icon{
+  height: 20px;
+}
+#gg-button.fw-500{
+  font-weight: 500;
+}
+
+.fw-500{
+  font-weight: 500;
+}
+/* ------------------------------- */
+
+.text-header{
+  font-weight: 700;
+}
+#register-body .letter-input{
+    letter-spacing: 2%!important;
+    /* font-family: 'Roboto', sans-serif; */
+    color: #717171;
+}
+#register-body .form-control{
+    font-size: 1rem;
+    height: 56px;
+    font-weight: 450;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    color:#222222;
+
+}
+#register-body .form-control:focus{
+    box-shadow: transparent;
+    
+}
+
+#register-body .small{
+    font-size: 12px!important;
+}
+
+#register-body .rounded{
+    border-radius: 8px!important;
+}
+#register-body .padding-input{
+    padding: 10px 12px!important;
+    letter-spacing: 2%!important;
+}
+ .card-header{
+    background-color: #EBEBEB!important;
+}
+.f-1rem{
+    font-size: 12px;
+    letter-spacing: 1.2%;
+}
+.text-register-warning{
+    color: #717171;
+    /* font-family: 'Roboto', sans-serif; */
+    margin: 8px 0;
+}
+#gender .form-check{
+    width: 100px;
+}
+.padding-form{
+    padding: 22px 24px;
+}
+#register-body .btn-danger{
+    background-image: linear-gradient(to right,#E61E4D00 0%, #E31C5F80 50%, #D70466 100%);
+    font-weight: 450!important;
+    color: #FFFFFF;
+
+}
+/* chú ý */
+.text-register{
+    /* font-family: 'Roboto', sans-serif; */
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}
+
+
+.padding-input .form-control{
+    height: 20px;
+    font-size: 16px!important;
+    overflow: visible;
+}
+
+#fw-500{
+    font-weight: 500;
+    color: black !important ;
+}
+
+#register-body a{
+    text-decoration: underline;
+    color: #1C6CB6;
+
+}
+#register-body .btn-show{
+    /* font-family: 'Roboto', sans-serif; */
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    width: 42px;
+    white-space: nowrap;
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    font-weight: 500 !important;
+    height: 20px;
+    position: absolute;
+    top: 16px;
+    right: 15px;
+
+}
+.warning-icon{
+    width: 10px;
+    height: 10px;
+    font-size: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #C13719;
+    color: white;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.text-error{
+
+    /* font-family: 'Roboto', sans-serif; */
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.012em;
+    color: #C13719;
+}
+.text-success{
+    color:  green;
+}
+
+.success-icon{
+    background-color: green;
+}
+
+#register-body .form-check-label{
+    color:#717171!important;
+}
+
+.custom-label{
+    transform: translateY(-1px);
+ }
+.custom-radio .form-check-input{
+    width: 16px;
+    height: 16px;
+    border-radius: 100px;
+    border: 2px solid #717171;
+    margin-right: 7px; 
+}
+.custom-check-box{
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #717171;
+  margin-right: 10px; 
+
+}
+.custom-radio .form-check-label{
+    width: 50px;
+    height: 18px;
+    /* font-family: 'Roboto', sans-serif; */
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    
+}
+.form-floating label {
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    color: #717171;
+  }
+  
+  .form-floating input:focus + label, 
+  .form-floating input:not(:placeholder-shown) + label {
+    font-size: 12px;
+    transform: translateY(-125%) scale(0.75);
+  }
+
+
+  .font-Roboto{
+    font-family: 'Roboto', sans-serif;
+
+  }
+
+  .grey-text{
+    color: #222222;
+    ;
+  }
+
+  .grey71-text{
+    color: #717171;
+  }
+  .lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 100% ;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: -10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+
+/*commit customize*/
+#register-body .text-1{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 2%;
+}
+
+
+#register-body .text-2{
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.012em;
+}
+
+#register-body .text-3{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+}
+#register-body .text-4{
+  
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  }
+#register-body .text-5{
+  
+font-size: 22px;
+font-weight: 500;
+line-height: 26px;
+letter-spacing: 2%;
+}
+
+#register-body .text-6{
+  
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 2%;
+  }
+
+  #register-body .text-7{
+  
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 1.2%;
+    }
+#register-body .text-8{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+
+}
+
+#register-body .text-otp{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+}
+#register-body .fa-angle-right{
+  width: 4px;
+  height: 6px;
+  border: 1.5px;
+  font-size: 14px;
+}
+/* #register-body .btn-white{
+  font-weight: 500!important;
+} */
+/*create profile 2*/
+a#back-a{
+  text-decoration: underline;
+  color: #222222!important;
+}
+.form-select option {
+  font-weight: 550;
+}
+/*create profile 3*/
+.custom-otp{
+  height: 0px;
+  margin: 10px auto;
+  padding: 0;
+  width: 200px;
+  background: repeating-linear-gradient(90deg, dimgrey 0 , dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 6ch 2px no-repeat;
+  font-size: 22px;
+  letter-spacing: 5ch;
+  text-align: center;
+  opacity: 0;
+}
+input#floatingOTP{
+  width: 119px;
+}
+
+.otp-dash{
+  letter-spacing: 1rem;
+}
+#continue-button3 {
+  padding: 0;
+  height: 48px;
+  width: 106px;
+}
+
+a#call-me{
+  text-decoration: underline;
+  color: #222222!important;
+}
+
+a#later{
+  text-decoration: underline;
+  color: #222222!important;
+}
+
+
+
+
+/* b2
+*/
+.icon-upload{
+  width: 16.67px;
+  height: 15px;
+  border: 1.5px;
+  
+}
+.icon-fb{
+  width: 20px;
+  height: 19.88px
+
+
+}
+
+.text-b2{
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.02em; 
+}
+
+.text-add-b2{
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0.02em;
+
+}
+
+.text2-b2{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+
+}
+
+/* test */
+#continue-button-edit.fw-500{
+  font-weight: 500;
+}
+
+#floatingOTP:focus + #d-val-otp {
+  color: red;
+}
