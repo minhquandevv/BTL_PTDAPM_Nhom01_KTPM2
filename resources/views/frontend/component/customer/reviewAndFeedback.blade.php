@@ -1,7 +1,7 @@
 <section>
     <form class="container mx-auto bg-white" style="height:1000px">
         <div class="d-flex gap-5 align-items-center my-4 justify-content-center">
-            <a href="{{ route('home') }}" class="position-absolute  text-dark " style="top:118px;left:45px;z-index:0">
+            <a href="{{ route('home') }}" class="position-absolute  text-dark z-0 " style="top:118px;left:45px;z-index:0">
                 <i class="fa-solid fa-chevron-left"></i>
             </a>
             <div class="text-decoration-none text-dark ">
