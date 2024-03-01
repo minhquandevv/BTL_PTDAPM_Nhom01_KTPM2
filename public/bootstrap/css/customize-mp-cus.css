@@ -1,0 +1,33 @@
+.label-gender{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    color: #717171;
+
+}
+
+/* .form-name label{
+    width: 16px;
+    height: 16px; 
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+
+} */
+.grey-400{
+    font-weight: 600px;
+    color: #222222;
+}
+.text-edit1{
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+
+}
+
+#continue-button-edit.fw-5{
+    font-weight: 500px;
+}
