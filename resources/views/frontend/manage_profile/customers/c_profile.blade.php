@@ -9,6 +9,8 @@
     <script src="https://kit.fontawesome.com/9e29fd661a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap/css/customize-register.css">
     <link rel="stylesheet" href="bootstrap/css/customize-mp-cus.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -29,12 +31,12 @@
                         <div id="input-group">
                             <div class="border rounded overflow-hidden">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0 rounded-0 border-bottom grey-400" id="floatingFirstNameLogin" placeholder="Họ">
+                                    <input type="text" class="form-control border-0 rounded-0 border-bottom grey-400" id="floatingFirstNameLogin" placeholder="Họ" value="Nguyễn">
                                     <label for="floatingFirstNameLogin">Họ</label>
                                   </div>
     
                                   <div class="form-floating">
-                                    <input type="text" class="form-control border-0 rounded-0" id="floatingLastNameLogin" placeholder="Tên">
+                                    <input type="text" class="form-control border-0 rounded-0" id="floatingLastNameLogin" placeholder="Tên" value="Văn A">
                                     <label for="floatingLastNameLogin">Tên</label>
                                   </div>
                            </div> 
@@ -45,7 +47,7 @@
                             <div class="d-flex mt-2" id="gender"> 
 
                                 <div class="form-check custom-radio">
-                                    <input class="form-check-input" type="radio" name="gender" value="male" id="maleLogin" selected/>
+                                    <input class="form-check-input" type="radio" name="gender" value="male" id="maleLogin" checked/>
                                     <label class="form-check-label custom-label" for="male">Nam</label>
                                 </div>
                                 <div class="form-check custom-radio">
@@ -57,7 +59,7 @@
                         <div id="input-group" class="mt-3">
                             <div class="border rounded overflow-hidden">    
                                 <div class="form-floating">
-                                    <input type="date" class="form-control border-0 rounded-0" id="floatingBirthdayLogin" placeholder="Ngày sinh">
+                                    <input type="date" class="form-control border-0 rounded-0" id="floatingBirthdayLogin" placeholder="Ngày sinh" value="2003-01-01">
                                     <label for="floatingBirthdayLogin">Ngày sinh</label>
                                   </div>
                            </div> 
@@ -65,7 +67,7 @@
                         
                         <div id="input-group" class="mt-3">
                             <div class="form-floating border rounded overflow-hidden">    
-                                <input type="text" class="form-control border-0" id="floatingAddress" placeholder="Địa chỉ">
+                                <input type="text" class="form-control border-0" id="floatingAddress" placeholder="Địa chỉ" value="Hà Nội">
                                 <label for="floatingAddress">Địa chỉ</label>
 
                            </div> 
@@ -73,12 +75,12 @@
 
                         <div id="input-group" class="mt-3">
                             <div class="form-floating border rounded overflow-hidden">    
-                                <input type="email" class="form-control border-0" id="floatingEmail" placeholder="Email">
+                                <input type="email" class="form-control border-0" id="floatingEmail" placeholder="Email" value="hello@gmail.com">
                                 <label for="floatingEmail">Email</label>
 
                            </div>  
                         </div>
-                        <button type="button" class="btn  w-100 py-3 mt-3 rounded btn-danger text-register" id="store-profile">Lưu thông tin</button>
+                        <button type="button" class="btn  w-100 py-3 mt-3 rounded btn-danger text-register fw-500" id="store-profile">Lưu thông tin</button>
 
                         
                     </form>

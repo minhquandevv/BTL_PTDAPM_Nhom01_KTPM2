@@ -72,6 +72,41 @@ Route::get('mp1', function () {
     return view('frontend/manage_profile/customers/c_profile');
 });
 //new
-Route::get('completeprofile', function () {
-    return view('frontend/manage_profile/customers/last');
+Route::get('profile1', function () {
+    return view('frontend.manage_profile.customers.profile1');
 });
+//new
+Route::get('completeprofile', function () {
+    return view('frontend.manage_profile.customers.last');
+});
+
+Route::get('createhomestay', function () {
+    return view('frontend.employee.CreateHomestay');
+});
+
+Route::get('successupload', function () {
+    return view('frontend.employee.SuccessUpload');
+});
+
+//Edit Homestay
+Route::get('edithomestay', function () {
+    return view('frontend.employee.EditHomestay');
+});
+
+Route::get('successedithomestay', function () {
+    return view('frontend.employee.SuccessEdit');
+});
+
+Route::get('editedhomestay', function () {
+    return view('frontend.employee.HomestayEdited');
+});
+
+Route::get('deletehomestay', function () {
+    return view('frontend.employee.DeleteForm');
+});
+
+Route::get('deletehomestay1', function () {
+    return view('frontend.employee.SuccessDeleteHomestay');
+});
+
+
