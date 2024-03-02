@@ -24,7 +24,7 @@
 </form>
 
 <h1 class="m-">Danh sách các phòng</h1>
-<a type="button" class="btn btn-success" href="{{ route('books.create') }}">Thêm mới một phòng</a>
+<a type="button" class="btn btn-success" href="{{ route('booking.create') }}">Thêm mới một phòng</a>
 <table class="table">
     <thead>
     <tr>

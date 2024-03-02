@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('DichVuPhong', function (Blueprint $table) {
+        Schema::create('dichvu_phong', function (Blueprint $table) {
             $table->id('MaDichVuPhong');
             $table->unsignedBigInteger('MaPhong');
             $table->unsignedBigInteger('MaDichVu');
-            $table->foreign('MaPhong')->references('MaP')->on('Phong');
-            $table->foreign('MaDichVu')->references('MaDV')->on('DichVu');
             $table->timestamps();
+
+            $table->foreign('MaPhong')->references('MaP')->on('phong');
+            $table->foreign('MaDichVu')->references('MaDV')->on('dichvu');
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('DichVuPhong');
+        Schema::dropIfExists('dichvu_phong');
     }
 };

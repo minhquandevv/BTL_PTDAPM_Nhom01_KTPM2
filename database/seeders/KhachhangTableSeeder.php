@@ -4,35 +4,29 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Faker\Factory as Faker;
 
-class CustomersSeeder extends Seeder
+class KhachhangTableSeeder extends Seeder
 {
     public function run()
     {
-        // Xóa dữ liệu cũ nếu có
-        DB::table('Khachhang')->truncate();
-
-        // Sử dụng Faker để tạo dữ liệu giả
         $faker = Faker::create();
 
-        // Thêm 50 dòng dữ liệu vào bảng 'quanlys'
-        for ($i = 0; $i < 50; $i++) {
-            DB::table('Khachhang')->insert([
+        foreach (range(1, 50) as $index) {
+            DB::table('khachhang')->insert([
                 'DuongDanAnh' => $faker->imageUrl(),
                 'TenKH' => $faker->name,
-                'CCCD' => $faker->unique()->numerify('###############'),
+                'CCCD' => $faker->unique()->randomNumber(8),
                 'NgaySinh' => $faker->date,
                 'GioiTinh' => $faker->randomElement(['Nam', 'Nu']),
                 'DiaChi' => $faker->address,
                 'Email' => $faker->unique()->safeEmail,
-                'SoDienThoai' => $faker->numerify('0#########'),
+                'Password' => Hash::make('password'), // Use Hash::make to securely hash passwords
+                'SoDienThoai' => $faker->phoneNumber,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-
-
         }
-
     }
 }

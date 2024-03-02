@@ -15,7 +15,7 @@ class BookingController extends Controller
     {
         $books = $this->searchBooks($request->search);
         $books->appends(['search' => $request->search]);
-        return view('backend.books.index', compact('books'));
+        return view('backend.booking.index', compact('books'));
 
     }
 

@@ -7,19 +7,19 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-    /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('YeuThich', function (Blueprint $table) {
+        Schema::create('yeuthich', function (Blueprint $table) {
             $table->id('MaYT');
             $table->unsignedBigInteger('MaKH');
             $table->unsignedBigInteger('MaP');
             $table->date('NgayThemVao');
-            $table->foreign('MaP')->references('MaP')->on('Phong');
-            $table->foreign('MaKH')->references('MaKH')->on('KhachHang');
             $table->timestamps();
+
+            $table->foreign('MaP')->references('MaP')->on('phong');
+            $table->foreign('MaKH')->references('MaKH')->on('khachhang');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('YeuThich');
+        Schema::dropIfExists('yeuthich');
     }
 };

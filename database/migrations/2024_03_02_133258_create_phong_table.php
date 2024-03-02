@@ -11,10 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('LoaiPhong', function (Blueprint $table) {
-            $table->id('MaLoaiPhong');
-            $table->string('TenLoaiPhong', 50);
-            $table->string('MoTa', 255);
+        Schema::create('phong', function (Blueprint $table) {
+            $table->id('MaP');
+            $table->string('TenPhong',50);
+            $table->text('GioiThieuPhong');
+            $table->decimal('DonGia', 18, 2);
+            $table->string('TinhTrang',50);
+            $table->boolean('ViewHuongBien');
+            $table->boolean('CoBonTamNgoi');
+            $table->integer('KichThuoc');
+            $table->unsignedBigInteger('MaLoaiPhong');
             $table->integer('SoNguoiToiDa');
             $table->integer('SoGiuong');
             $table->integer('SoPhongTam');
@@ -22,6 +28,8 @@ return new class extends Migration
             $table->boolean('TVTrongPhong');
             $table->integer('DienTichBalcon');
             $table->timestamps();
+
+            $table->foreign('MaLoaiPhong')->references('MaLoaiPhong')->on('loaiphong');
         });
     }
 
@@ -30,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('LoaiPhong');
+        Schema::dropIfExists('phong');
     }
 };

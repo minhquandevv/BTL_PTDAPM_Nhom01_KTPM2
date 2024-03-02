@@ -22,6 +22,7 @@
         <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
     </div>
 </form>
+<a type="button" class="btn btn-success" href="{{ route('accounts.create') }}">Thêm tai khoan</a>
 <table class="table">
     <thead>
     <tr>
