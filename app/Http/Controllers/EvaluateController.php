@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\DanhGia;
+use App\Models\Evaluate;
 use Illuminate\Http\Request;
 
-class DanhGiaController extends Controller
+class EvaluateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +14,10 @@ class DanhGiaController extends Controller
     public function index()
     {
         // Retrieve all DanhGia records with associated KhachHang and Phong
-        $danhgias = DanhGia::with("khachhang")->with("rooms")->get();
+        $evaluates = Evaluate::paginate(2);
 
         // Return the data as JSON
-        return response()->json($danhgias);
+        return response()->json($evaluates);
     }
 
 }
