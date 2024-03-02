@@ -13,7 +13,7 @@ class HoaDonController extends Controller
     public function index()
     {
         // Retrieve all DanhGia records with associated KhachHang and Phong
-        $lichsudatphongs = HoaDon::with("khachhang")->with("nhanvien")->with("phong")->get();
+        $lichsudatphongs = HoaDon::with("khachhang")->with("nhanvien")->with("rooms")->get();
 
         // Return the data as JSON
         return response()->json($lichsudatphongs);

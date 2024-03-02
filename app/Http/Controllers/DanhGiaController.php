@@ -13,7 +13,7 @@ class DanhGiaController extends Controller
     public function index()
     {
         // Retrieve all DanhGia records with associated KhachHang and Phong
-        $danhgias = DanhGia::with("khachhang")->with("phong")->get();
+        $danhgias = DanhGia::with("khachhang")->with("rooms")->get();
 
         // Return the data as JSON
         return response()->json($danhgias);
