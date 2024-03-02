@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Favorite;
 use App\Models\ImgRoom;
 use App\Models\Room;
+use App\Models\ServiceRoom;
+use Database\Seeders\ServiceRoomSeeder;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -132,8 +135,10 @@ class RoomController extends Controller
         $roomPrimaryKey = $room->getAttribute('MaP');
 
         // Delete related ImgRoom records
-        ImgRoom::where('MaPhong', '=', $roomPrimaryKey)->delete();
-        Favorite::where('MaP', '=', $roomPrimaryKey)->delete();
+//        ImgRoom::where('MaPhong', '=', $roomPrimaryKey)->delete();
+//        ServiceRoom::where('MaPhong', '=', $roomPrimaryKey)->delete();
+//        Favorite::where('MaP', '=', $roomPrimaryKey)->delete();
+//        Booking::where('MaPhong', '=', $roomPrimaryKey)->delete();
 
         // Delete the Room record
         $room->delete();

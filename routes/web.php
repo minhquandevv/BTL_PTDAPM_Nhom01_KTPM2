@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('rooms', \App\Http\Controllers\RoomController::class);
 Route::resource('accounts', \App\Http\Controllers\AccountsController::class);
 Route::resource('danhgia', \App\Http\Controllers\DanhGiaController::class);
-Route::resource('hoadon', \App\Http\Controllers\HoaDonController::class);
+Route::resource('books', \App\Http\Controllers\BookingController::class);
 Route::resource('employees', \App\Http\Controllers\EmployeeController::class);
 
 
