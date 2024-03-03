@@ -9,7 +9,7 @@ class Favorite extends Model
 {
     use HasFactory;
 
-    protected $table = 'YeuThich';
+    protected $table = 'yeuthich';
 
     protected $primaryKey = 'MaYT';
 
@@ -19,15 +19,15 @@ class Favorite extends Model
         'NgayThemVao',
     ];
 
-    public $timestamps = true;
-
-    public function customer()
-    {
-        return $this->belongsTo(Customer::class, 'MaKH', 'MaKH');
-    }
-
+    // Quan hệ với bảng 'phong'
     public function room()
     {
         return $this->belongsTo(Room::class, 'MaP', 'MaP');
+    }
+
+    // Quan hệ với bảng 'khachhang'
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'MaKH', 'MaKH');
     }
 }

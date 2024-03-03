@@ -9,7 +9,7 @@ class Customer extends Model
 {
     use HasFactory;
 
-    protected $table = 'Khachhang';
+    protected $table = 'khachhang';
 
     protected $primaryKey = 'MaKH';
 
@@ -21,7 +21,12 @@ class Customer extends Model
         'GioiTinh',
         'DiaChi',
         'Email',
+        'Password',
         'SoDienThoai',
+    ];
+
+    protected $hidden = [
+        'Password',
     ];
 
     protected $casts = [

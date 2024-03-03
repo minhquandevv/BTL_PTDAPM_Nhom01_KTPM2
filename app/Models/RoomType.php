@@ -9,7 +9,7 @@ class RoomType extends Model
 {
     use HasFactory;
 
-    protected $table = 'LoaiPhong';
+    protected $table = 'loaiphong';
 
     protected $primaryKey = 'MaLoaiPhong';
 
@@ -23,6 +23,17 @@ class RoomType extends Model
         'TVTrongPhong',
         'DienTichBalcon',
     ];
+
+    protected $casts = [
+        'WifiMienPhi' => 'boolean',
+        'TVTrongPhong' => 'boolean',
+    ];
+
+    // Quan hệ với bảng 'phong'
+    public function room()
+    {
+        return $this->hasMany(Room::class, 'MaLoaiPhong', 'MaLoaiPhong');
+    }
 
     public $timestamps = true;
 }

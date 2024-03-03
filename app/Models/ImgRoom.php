@@ -9,7 +9,7 @@ class ImgRoom extends Model
 {
     use HasFactory;
 
-    protected $table = 'img_rooms';
+    protected $table = 'anhphong';
 
     protected $primaryKey = 'MaAnh';
 
@@ -18,8 +18,7 @@ class ImgRoom extends Model
         'DuongDanAnh',
     ];
 
-    public $timestamps = true;
-
+    // Quan hệ với bảng 'phong'
     public function room()
     {
         return $this->belongsTo(Room::class, 'MaPhong', 'MaP');

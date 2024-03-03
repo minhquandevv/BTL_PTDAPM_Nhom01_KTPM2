@@ -9,29 +9,30 @@ class Employee extends Model
 {
     use HasFactory;
 
-    protected $table = 'NhanVien';
+
+    protected $table = 'nhanvien';
 
     protected $primaryKey = 'MaNV';
 
     protected $fillable = [
         'DuongDanAnh',
-        'TenNV',
+        'TenQL',
         'CCCD',
         'NgaySinh',
         'GioiTinh',
         'DiaChi',
         'Email',
-        'SoDienThoai',
+        'Password',
         'Chucvu',
-        'MaQL',
+        'SoDienThoai',
+    ];
+
+    protected $hidden = [
+        'Password',
+        // Các trường khác bạn muốn ẩn khi chuyển đối tượng sang JSON
     ];
 
     protected $casts = [
-        'NgaySinh' => 'date',
+        'NgaySinh' => 'date', // Chuyển đổi trường NgaySinh thành kiểu ngày
     ];
-
-    public function manager()
-    {
-        return $this->belongsTo(Manager::class, 'MaQL', 'MaQL');
-    }
 }

@@ -11,7 +11,7 @@ class Room extends Model
 {
     use HasFactory;
 
-    protected $table = 'Phong';
+    protected $table = 'phong';
 
     protected $primaryKey = 'MaP';
 
@@ -32,9 +32,15 @@ class Room extends Model
         'DienTichBalcon',
     ];
 
-    public $timestamps = true;
+    protected $casts = [
+        'ViewHuongBien' => 'boolean',
+        'CoBonTamNgoi' => 'boolean',
+        'WifiMienPhi' => 'boolean',
+        'TVTrongPhong' => 'boolean',
+    ];
 
-    public function roomType()
+    // Quan hệ với bảng 'loaiphong'
+    public function loaiPhong()
     {
         return $this->belongsTo(RoomType::class, 'MaLoaiPhong', 'MaLoaiPhong');
     }

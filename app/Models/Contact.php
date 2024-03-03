@@ -9,24 +9,19 @@ class Contact extends Model
 {
     use HasFactory;
 
-    protected $table = 'LienHe';
+    protected $table = 'lienhe';
 
     protected $primaryKey = 'MaLienHe';
 
     protected $fillable = [
         'Email',
         'SoDT',
-        'MaQL',
         'MaNV',
     ];
 
-    public function manager()
-    {
-        return $this->belongsTo(Manager::class, 'MaQL');
-    }
-
+    // Quan hệ với bảng 'nhanvien'
     public function employee()
     {
-        return $this->belongsTo(Employee::class, 'MaNV');
+        return $this->belongsTo(Employee::class, 'MaNV', 'MaNV');
     }
 }

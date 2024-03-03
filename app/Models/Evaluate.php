@@ -9,7 +9,7 @@ class Evaluate extends Model
 {
     use HasFactory;
 
-    protected $table = 'DanhGia';
+    protected $table = 'danhgia_nhanxet';
 
     protected $primaryKey = 'MaDanhGia';
 
@@ -19,8 +19,7 @@ class Evaluate extends Model
         'NhanXet',
     ];
 
-    public $timestamps = true;
-
+    // Quan hệ với bảng 'datphong'
     public function booking()
     {
         return $this->belongsTo(Booking::class, 'MaDatPhong', 'MaDatPhong');

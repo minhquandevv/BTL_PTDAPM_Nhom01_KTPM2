@@ -9,7 +9,7 @@ class Payment extends Model
 {
     use HasFactory;
 
-    protected $table = 'ThanhToan';
+    protected $table = 'thanhtoan';
 
     protected $primaryKey = 'MaThanhToan';
 
@@ -21,8 +21,7 @@ class Payment extends Model
         'TinhTrangThanhToan',
     ];
 
-    public $timestamps = true;
-
+    // Quan hệ với bảng 'datphong'
     public function booking()
     {
         return $this->belongsTo(Booking::class, 'MaDatPhong', 'MaDatPhong');

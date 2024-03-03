@@ -9,7 +9,7 @@ class Booking extends Model
 {
     use HasFactory;
 
-    protected $table = 'DatPhong';
+    protected $table = 'datphong';
 
     protected $primaryKey = 'MaDatPhong';
 
@@ -24,13 +24,13 @@ class Booking extends Model
         'TinhTrangThanhToan',
     ];
 
-    public $timestamps = true;
-
+    // Quan hệ với bảng 'khachhang'
     public function customer()
     {
         return $this->belongsTo(Customer::class, 'MaKH', 'MaKH');
     }
 
+    // Quan hệ với bảng 'phong'
     public function room()
     {
         return $this->belongsTo(Room::class, 'MaPhong', 'MaP');

@@ -9,10 +9,10 @@ class AuthController extends Controller
     //
     public function __construct()
     {
-        
+
     }
     public function index()
     {
-        return view('frontend.auth.login.index');
+        return view('frontend.auth');
     }
 }

@@ -21,6 +21,13 @@ class RoomController extends Controller
         $rooms->appends(['search' => $request->search]);
         return view('backend.rooms.index', compact('rooms'));
 
+//        return view('frontend/auth/login/index');
+//        return view('frontend/auth/register/completeProfile');
+//        return view('frontend/auth/register/registerEmail');
+//        return view('frontend/auth/register/registerPhone');
+
+
+
     }
 
     private function searchPhongs($searchQuery)

@@ -9,7 +9,7 @@ class Service extends Model
 {
     use HasFactory;
 
-    protected $table = 'DichVu';
+    protected $table = 'dichvu';
 
     protected $primaryKey = 'MaDV';
 

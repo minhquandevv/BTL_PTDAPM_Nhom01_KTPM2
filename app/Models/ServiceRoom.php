@@ -10,7 +10,7 @@ class ServiceRoom extends Model
 {
     use HasFactory;
 
-    protected $table = 'DichVuPhong';
+    protected $table = 'dichvu_phong';
 
     protected $primaryKey = 'MaDichVuPhong';
 
@@ -19,13 +19,13 @@ class ServiceRoom extends Model
         'MaDichVu',
     ];
 
-    public $timestamps = true;
-
+    // Quan hệ với bảng 'phong'
     public function room()
     {
         return $this->belongsTo(Room::class, 'MaPhong', 'MaP');
     }
 
+    // Quan hệ với bảng 'dichvu'
     public function service()
     {
         return $this->belongsTo(Service::class, 'MaDichVu', 'MaDV');
