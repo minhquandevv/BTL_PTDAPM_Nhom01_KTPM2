@@ -34,7 +34,6 @@ Route::get('register1', function () {
 //new
 Route::get('register2', function () {
     return view('frontend.auth.register.customers.Register2');
-    return view('frontend.home.index');
 });
 
 //new
@@ -158,4 +157,8 @@ Route::get('bookingsuccess', function () {
 
 Route::get('employeeprofile', function () {
     return view('frontend.manage_profile.employees.EmployeeProfile');
+});
+
+Route::get('test1', function () {
+    return view('frontend.manage_profile.customers.test');
 });

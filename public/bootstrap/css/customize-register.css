@@ -20,21 +20,7 @@ select option[data-image="bootstrap/css/patterns/vnpay.svg"] {
 }
 
 
-/* .radio-checked-custom[type=radio]{
-  width: 16px;
-  height: 16px;
-  margin-right: 7px; 
-  border-radius: 50%;
-  border: 2px solid #C6193E;
-} */
-#register-body1 .radio-checked-custom:checked{
-    border:  none;
-    background-color: #C6193E !important;
-}
-#register-body1 .radio-checked-custom:checked[type=radio]{
 
-  --bs-form-check-bg-image:  radial-gradient(closest-side, #E2057A 65%, transparent  5%, #FFFFFF 20%);
-}
 /* Form 1 Register */
 hr#line-custom{
   border: 1px solid #DDDDDD;
@@ -97,10 +83,36 @@ hr#line-custom{
 #gender .form-check{
     width: 100px;
 }
+#gender-profile .form-check{
+  width: 100px;
+}
+/* radio */
+#gender-profile .form-check-input[type=radio]{
+    border-radius: 50%;
+    border: 2px solid #717171;
+}
+
+#gender-profile .form-check-input:checked{
+  background-color: #FF385C !important;
+  border: 2px solid #C6193E;
+}
+#gender-profile .form-check-input:checked[type=radio]{
+  --bs-form-check-bg-image:  radial-gradient(closest-side, #E2057A 65%, transparent  5%, #FFFFFF 20%);
+    
+    
+}
 .padding-form{
     padding: 22px 24px;
 }
 #register-body .btn-danger{
+  background-color: #FF385C !important;
+  background-image: linear-gradient(to right,#E61E4D00 0%, #E31C5F80 50%, #D70466 100%);
+ /* font-weight: 500!important; */
+  color: #FFFFFF;
+
+}
+
+#register-body-profile .btn-danger{
   background-color: #FF385C !important;
   background-image: linear-gradient(to right,#E61E4D00 0%, #E31C5F80 50%, #D70466 100%);
  /* font-weight: 500!important; */

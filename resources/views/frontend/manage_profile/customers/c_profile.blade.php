@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thông tin cá nhân</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9e29fd661a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap/css/customize-register.css">
     <link rel="stylesheet" href="bootstrap/css/customize-mp-cus.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
 </head>
 <body>
 
@@ -44,13 +46,13 @@
                         <div id="input-group" class="mt-2">
                             <label for="gender-check" class="form-label mb-0 mx-2 label-gender">Giới tính</label>
 
-                            <div class="d-flex mt-2" id="gender"> 
-
-                                <div class="form-check custom-radio">
+                            <div class="d-flex mt-2" id="gender-profile"> 
+                            
+                                <div class="form-check ">
                                     <input class="form-check-input" type="radio" name="gender" value="male" id="maleLogin" checked/>
                                     <label class="form-check-label custom-label" for="male">Nam</label>
                                 </div>
-                                <div class="form-check custom-radio">
+                                <div class="form-check ">
                                     <input class="form-check-input" type="radio" name="gender" value="female" id="femaleLogin" />
                                     <label class="form-check-label custom-label" for="female">Nữ</label>
                                 </div>

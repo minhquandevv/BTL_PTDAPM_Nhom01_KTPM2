@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thông tin cá nhân</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9e29fd661a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap/css/customize-register.css">
     <link rel="stylesheet" href="bootstrap/css/customize-mp-cus.css">
@@ -50,7 +50,7 @@
                         <div id="input-group" class="mt-2">
                             <label for="gender-check" class="form-label mb-0 mx-2 label-gender">Giới tính</label>
 
-                            <div class="d-flex mt-2" id="gender"> 
+                            <div class="d-flex mt-2" id="gender-profile"> 
 
                                 <div class="form-check ">
                                     <input class="form-check-input radio-checked-custom" type="radio" name="gender" value="male" id="maleLogin" checked/>
