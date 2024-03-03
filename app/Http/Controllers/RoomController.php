@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Evaluate;
 use App\Models\Favorite;
 use App\Models\ImgRoom;
+use App\Models\Payment;
 use App\Models\Room;
+use App\Models\RoomType;
 use App\Models\ServiceRoom;
-use Database\Seeders\ServiceRoomSeeder;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -25,7 +27,6 @@ class RoomController extends Controller
 //        return view('frontend/auth/register/completeProfile');
 //        return view('frontend/auth/register/registerEmail');
 //        return view('frontend/auth/register/registerPhone');
-
 
 
     }
@@ -47,19 +48,33 @@ class RoomController extends Controller
      */
     public function create()
     {
-        return view('backend.rooms.create');
+        $roomTypes = RoomType::all();
+        return view('backend.rooms.create', ['roomTypes' => $roomTypes]);
     }
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+
+        $processedData = $this->processDataBeforeValidation($request->all());
+        $request->validate([
             'TenPhong' => 'required|string|max:255',
             'GioiThieuPhong' => 'required|string',
             'DonGia' => 'required|numeric',
             'TinhTrang' => 'required|string|max:50',
+            'ViewHuongBien' => '',
+            'CoBonTamNgoi' => '',
+            'KichThuoc' => 'required|string',
+            'MaLoaiPhong' => 'required|exists:loaiphong,MaLoaiPhong',
+            'SoNguoiToiDa' => 'numeric',
+            'SoPhongTam' => 'numeric',
+            'WifiMienPhi' => '',
+            'SoGiuong' => 'numeric',
+            'TVTrongPhong' => '',
+            'DienTichBalcon' => 'numeric',
         ], [
             'TenPhong.required' => 'Vui lòng nhập tên phòng.',
             'TenPhong.string' => 'Tên phòng phải là chuỗi.',
@@ -74,16 +89,49 @@ class RoomController extends Controller
             'TinhTrang.required' => 'Vui lòng nhập tình trạng phòng.',
             'TinhTrang.string' => 'Tình trạng phòng phải là chuỗi.',
             'TinhTrang.max' => 'Tình trạng phòng không được vượt quá 50 ký tự.',
+
+            'KichThuoc.required' => 'Vui lòng nhập kích thước.',
+            'KichThuoc.string' => 'Kích thước phải là chuỗi.',
+            'SoGiuong.numeric' => 'phải là số.',
+            'MaLoaiPhong.required' => 'Vui lòng chọn loại phòng.',
+            'MaLoaiPhong.exists' => 'Loại phòng không hợp lệ.',
+
+            'SoNguoiToiDa.numeric' => 'Số người tối đa phải là số.',
+
+            'DienTichBalcon.numeric' => 'Diện tích ban công phải là số.',
         ]);
 
 
+        // Tạo một đối tượng Room từ dữ liệu đầu vào
         $room = Room::create([
-            'TenPhong' => $validatedData['TenPhong'],
-            'GioiThieuPhong' => $validatedData['GioiThieuPhong'],
-            'DonGia' => $validatedData['DonGia'],
-            'TinhTrang' => $validatedData['TinhTrang'],
+            'TenPhong' => $request->input('TenPhong'),
+            'GioiThieuPhong' => $request->input('GioiThieuPhong'),
+            'DonGia' => $request->input('DonGia'),
+            'TinhTrang' => $request->input('TinhTrang'),
+            'ViewHuongBien' => $request->has('ViewHuongBien'),
+            'CoBonTamNgoi' => $request->has('CoBonTamNgoi'),
+            'KichThuoc' => $request->input('KichThuoc'),
+            'MaLoaiPhong' => $request->input('MaLoaiPhong'),
+            'SoNguoiToiDa' => $request->input('SoNguoiToiDa'),
+            'SoGiuong' => $request->input('SoGiuong'),
+            'SoPhongTam' => $request->input('SoPhongTam'),
+            'WifiMienPhi' => $request->has('WifiMienPhi'),
+            'TVTrongPhong' => $request->has('TVTrongPhong'),
+            'DienTichBalcon' => $request->input('DienTichBalcon'),
         ]);
+
         return view('backend.rooms.show', compact('room'));
+    }
+
+    private function processDataBeforeValidation(array $data)
+    {
+        // Chuyển đổi giá trị 'TVTrongPhong' từ "on" sang "1" và null sang "0"
+        $data['ViewHuongBien'] = isset($data['TVTrongPhong']) ? '1' : '0';
+        $data['CoBonTamNgoi'] = isset($data['TVTrongPhong']) ? '1' : '0';
+        $data['WifiMienPhi'] = isset($data['TVTrongPhong']) ? '1' : '0';
+        $data['TVTrongPhong'] = isset($data['TVTrongPhong']) ? '1' : '0';
+
+        return $data;
     }
 
     /**
@@ -139,15 +187,33 @@ class RoomController extends Controller
 
     public function destroy(Room $room)
     {
-        $roomPrimaryKey = $room->getAttribute('MaP');
+        $roomId = $room->MaP;
+        $datphongRecords = Booking::where('MaPhong', $roomId)->get();
 
-        // Delete related ImgRoom records
-//        ImgRoom::where('MaPhong', '=', $roomPrimaryKey)->delete();
-//        ServiceRoom::where('MaPhong', '=', $roomPrimaryKey)->delete();
-//        Favorite::where('MaP', '=', $roomPrimaryKey)->delete();
-//        Booking::where('MaPhong', '=', $roomPrimaryKey)->delete();
+        foreach ($datphongRecords as $datphong) {
+            // Delete the related records in datphong table first
+            $maDatPhong = $datphong->MaDatPhong;
+            $thanhtoanRecords = Payment::where('MaDatPhong', $maDatPhong)->get();
 
-        // Delete the Room record
+            foreach ($thanhtoanRecords as $thanhtoan) {
+                // Delete the related records in thanhtoan table first
+                $thanhtoan->delete();
+            }
+            $danhgiaRecords = Evaluate::where('MaDatPhong', $maDatPhong)->get();
+
+            foreach ($danhgiaRecords as $danhgia) {
+                // Delete the related records in danhgia_nhanxet table first
+                $danhgia->delete();
+            }
+            $datphong->delete();
+        }
+
+        $dichvuPhongRecords = ServiceRoom::where('MaPhong', $roomId)->get();
+
+        foreach ($dichvuPhongRecords as $dichvuPhong) {
+            $dichvuPhong->delete();
+        }
+
         $room->delete();
 
         // Redirect with success message

@@ -55,21 +55,45 @@ class EmployeeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $employee = Employee::find($id);
+        return view('backend.employees.edit', compact('employee'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public
+    function update(Request $request, Employee $employee)
     {
-        //
+        $validatedData = $request->validate([
+            'Password' => 'required',
+            'MatKhauNew' => 'required|min:8',
+            'MatKhauNewConf' => 'required|min:8',
+        ], [
+            'Password.required' => 'Không được trống',
+            'MatKhauNew.required' => 'Không được trống',
+            'MatKhauNewConf.required' => 'Không được trống',
+            'MatKhauNew.min' => 'Phải có ít nhất 8 ký tự',
+            'MatKhauNewConf.min' => 'Phải có ít nhất 8 ký tự',
+        ]);
+
+        if (!password_verify($validatedData['Password'], $employee->Password)) {
+            return redirect()->back()->with('error', 'Mật khẩu hiện tại không đúng');
+        } elseif ($request->MatKhauNew != $request->MatKhauNewConf) {
+            return redirect()->back()->with('error', 'Mật khẩu mới và xác nhận không khớp');
+        } else {
+            $hashedPasswordNew = password_hash($validatedData['MatKhauNew'], PASSWORD_BCRYPT);
+            $employee->update(['Password' => $hashedPasswordNew]);
+            return redirect()->route('employees.show', $employee->MaNV);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public
+    function destroy(string $id)
     {
         //
     }

@@ -13,6 +13,6 @@ class AuthController extends Controller
     }
     public function index()
     {
-        return view('frontend.auth');
+        return view('frontend.auth.index');
     }
 }

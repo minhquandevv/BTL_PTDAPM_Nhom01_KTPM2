@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\RoomType;
 use Illuminate\Http\Request;
 use function Symfony\Component\Translation\t;
 
@@ -11,11 +12,13 @@ class AccountsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index($request)
     {
-        $accounts = $this->searchAccounts($request->search);
-        $accounts->appends(['search' => $request->search]);
-        return view('backend.accounts.index', compact('accounts'));
+//        $roomType = RoomType::all();
+//        echo json_encode($roomType);
+//        $employees = $this->searchAccounts($request->search);
+//        $employees->appends(['search' => $request->search]);
+//        return view('backend.employees.index', compact('employees'));
     }
 
     private function searchAccounts($searchQuery)
@@ -30,7 +33,7 @@ class AccountsController extends Controller
 
     public function create()
     {
-        return view('backend.accounts.create');
+        return view('backend.employees.create');
     }
 
     /**
@@ -42,7 +45,7 @@ class AccountsController extends Controller
         $account = Account::where('TenDangNhap', $TenDangNhap)->first();
 
         if ($account && $TenDangNhap == $account->TenDangNhap) {
-            return redirect()->route('accounts.create')->with('error', 'tai khoan da ton tai.');
+            return redirect()->route('employees.create')->with('error', 'tai khoan da ton tai.');
         } else {
             $validatedData = $request->validate([
                 'TenDangNhap' => 'required',
@@ -67,7 +70,7 @@ class AccountsController extends Controller
                 return redirect()->back()->with('errorPass', 'Mật khẩu mới và xác nhận không khớp');
             }
 
-            return redirect()->route('accounts.show', $account)->with('success', 'Phong create successfully.');
+            return redirect()->route('employees.show', $account)->with('success', 'Phong create successfully.');
         }
     }
 
@@ -77,7 +80,7 @@ class AccountsController extends Controller
     public
     function show(Account $account)
     {
-        return view('backend.accounts.show', compact('account'));
+        return view('backend.employees.show', compact('account'));
     }
 
     /**
@@ -86,7 +89,7 @@ class AccountsController extends Controller
     public
     function edit(Account $account)
     {
-        return view('backend.accounts.edit', compact('account'));
+        return view('backend.employees.edit', compact('account'));
     }
 
     /**
@@ -114,7 +117,7 @@ class AccountsController extends Controller
         } else {
             $hashedPasswordNew = password_hash($validatedData['MatKhauNew'], PASSWORD_BCRYPT);
             $account->update(['MatKhau' => $hashedPasswordNew]);
-            return view('backend.accounts.show', compact('account'))->with('success', 'Mật khẩu đã được cập nhật thành công');
+            return view('backend.employees.show', compact('account'))->with('success', 'Mật khẩu đã được cập nhật thành công');
         }
     }
 
@@ -122,7 +125,7 @@ class AccountsController extends Controller
     function destroy(Account $account)
     {
         $account->delete(); // Delete the record
-        return redirect()->route('accounts.index')->with('success', 'Phong deleted successfully.');
+        return redirect()->route('employees.index')->with('success', 'Phong deleted successfully.');
     }
 
 }

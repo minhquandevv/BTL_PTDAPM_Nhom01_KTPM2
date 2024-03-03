@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 class BookingController extends Controller
 {
 
+    public function index1()
+    {
+        $template = 'frontend.component.customer.bookRoom';
+        return view('frontend.component.customer.layout', compact('template'));
+    }
+
     /**
      * Display a listing of the resource.
      */
