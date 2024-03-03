@@ -155,3 +155,7 @@ Route::get('feedbacksuccess', function () {
 Route::get('bookingsuccess', function () {
     return view('frontend.manage_profile.customers.BookingSuccess');
 });
+
+Route::get('employeeprofile', function () {
+    return view('frontend.manage_profile.employees.EmployeeProfile');
+});

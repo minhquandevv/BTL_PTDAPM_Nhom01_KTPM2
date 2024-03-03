@@ -15,23 +15,26 @@ select option[data-image="bootstrap/css/patterns/vnpay.svg"] {
 .select-pay{
   height: 50px;
 }
-/* input:read-only{
+#register-body1 input:read-only{
   background-color: #FFFFFF!important; 
-} */
+}
+
+
 /* .radio-checked-custom[type=radio]{
   width: 16px;
   height: 16px;
   margin-right: 7px; 
   border-radius: 50%;
   border: 2px solid #C6193E;
-}
-.radio-checked-custom:checked{
+} */
+#register-body1 .radio-checked-custom:checked{
+    border:  none;
     background-color: #C6193E !important;
 }
-.radio-checked-custom:checked[type=radio]{
+#register-body1 .radio-checked-custom:checked[type=radio]{
 
   --bs-form-check-bg-image:  radial-gradient(closest-side, #E2057A 65%, transparent  5%, #FFFFFF 20%);
-} */
+}
 /* Form 1 Register */
 hr#line-custom{
   border: 1px solid #DDDDDD;
@@ -229,12 +232,12 @@ hr#line-custom{
   }
 
   .grey-text{
-    color: #222222;
+    color: #222222  !important;
     ;
   }
 
   .grey71-text{
-    color: #717171;
+    color: #717171 !important;
   }
   .lds-ellipsis {
     display: inline-block;
