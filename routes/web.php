@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\BookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +34,9 @@ Route::get('register1', function () {
 //new
 Route::get('register2', function () {
     return view('frontend.auth.register.customers.Register2');
+    return view('frontend.home.index');
 });
+
 //new
 
 Route::get('completeregister', function () {
