@@ -1,6 +1,20 @@
 *{
   font-family: 'Roboto', sans-serif;
 }
+select option[data-image] {
+  padding-left: 30px; /* Để tạo khoảng trống giữa hình ảnh và nội dung văn bản */
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+select option[data-image="bootstrap/css/patterns/vnpay.svg"] {
+  background-image: url("bootstrap/css/patterns/vnpay.svg");
+  /* Điều chỉnh các thuộc tính khác tùy thuộc vào kích thước và vị trí của hình ảnh */
+}
+
+.select-pay{
+  height: 50px;
+}
 /* input:read-only{
   background-color: #FFFFFF!important; 
 } */
@@ -220,7 +234,7 @@ hr#line-custom{
   }
 
   .grey71-text{
-    color: #717171!important;
+    color: #717171;
   }
   .lds-ellipsis {
     display: inline-block;

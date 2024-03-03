@@ -94,39 +94,7 @@
   
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript">
-let pass_input = document.getElementById("floatingPass") ;
-let btn_show = document.getElementById('btnShowPass');
-function hidden_btn(){
-    if(pass_input.value === ''){
-        btn_show.style.display='none';
-    }
-    else{
-        btn_show.style.display='block';
-    }
-}
-hidden_btn();
-function showPass(obj) {
-  var x = document.getElementById("floatingPass");
-  if (x.type === "password") {
-    obj.innerText = "Ẩn";
-    x.type = "text";
-  } else {
-    obj.innerText = "Hiển thị";
-    x.type = "password";
-  }
-}
-///////////////////////
-let loading_btn = document.getElementById( 'accept-button' );
-loading_btn.onclick=()=>{
-    loading_btn.innerHTML=`<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>`;
-    loading_btn.classList.remove("btn-danger");
-    loading_btn.classList.add("btn-secondary");
-    return false;
-    // alert("dahdgajhsdgasgdajh");
-}
-// abc
-</script>
+
 
 </body>
 </html>

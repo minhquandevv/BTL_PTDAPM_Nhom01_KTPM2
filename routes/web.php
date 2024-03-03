@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\BookingController;
+// use App\Http\Controllers\CustomerController;
+// use App\Http\Controllers\BookingController;
+// use App\Http\Controllers\CustomerController;
+// use App\Http\Controllers\BookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -112,4 +112,46 @@ Route::get('deletehomestay', function () {
 
 Route::get('deletehomestay1', function () {
     return view('frontend.employee.SuccessDeleteHomestay');
+});
+
+
+//Staff
+
+Route::get('successadd', function () {
+    return view('frontend.staff.AddAccountSuccess');
+});
+
+//Staff
+
+Route::get('successeditaccount', function () {
+    return view('frontend.staff.EditAccountSuccess');
+});
+
+//Staff
+
+Route::get('successdeleteaccount', function () {
+    return view('frontend.staff.DeleteAccountSuccess');
+});
+
+//Staff
+
+Route::get('comfirmdeleteaccout', function () {
+    return view('frontend.staff.DeleteAccountForm');
+});
+
+//Customer
+
+Route::get('pay', function () {
+    return view('frontend.manage_profile.customers.Pay');
+});
+
+Route::get('feedback', function () {
+    return view('frontend.manage_profile.customers.Feedback');
+});
+Route::get('feedbacksuccess', function () {
+    return view('frontend.manage_profile.customers.FeedbackSuccess');
+});
+
+Route::get('bookingsuccess', function () {
+    return view('frontend.manage_profile.customers.BookingSuccess');
 });
