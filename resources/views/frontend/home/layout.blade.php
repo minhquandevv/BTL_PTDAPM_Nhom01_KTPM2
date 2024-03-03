@@ -7,8 +7,8 @@
 
 <body>
     <div id="wrapper">
-        @include('frontend.component.navbar')
-        @include('frontend.component.staff.searchInfor')
+        @include('frontend.component.navbar_manager')
+        @include('frontend.component.customer.bookroomcancel')
         @include('frontend.component.footer')
     </div>
     @include('frontend.component.script')

@@ -1,4 +1,4 @@
-<footer class="w-100 " style="height: 114px; background-color:#FDE7FB">
+ <footer class="w-100 " style="height: 114px; background-color:#FDE7FB">
      <!-- Background image -->
      <div class="container w-100 ps-0 pt-5">
          <div class="row border-2 border-top">

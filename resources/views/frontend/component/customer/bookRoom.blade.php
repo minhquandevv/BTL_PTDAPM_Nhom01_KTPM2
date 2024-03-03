@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Book Room</title>
 </head>
@@ -22,22 +21,16 @@
             </div>
             <div class="d-flex w-100 mb-5 mt-3 ">
                 <div class="pe-3">
-                    <img class="card-img-top rounded-lg"
-                        src="https://i.upanh.org/2024/02/27/image_body44710f111b17e14a.png" alt=""
-                        style="width:650px; height : 465px;" />
+                    <img class="card-img-top rounded-start" src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width:650px; height : 460px;" />
                 </div>
                 <div>
-                    <div>
-                        <img class="card-img-top rounded-lg me-2 mb-3" src="https://img.upanh.tv/2024/02/27/image-9.png"
-                            alt="" style="width: 320px; height:225px" />
-                        <img class="card-img-top rounded-lg mb-3" src="https://img.upanh.tv/2024/02/27/image-11.png"
-                            alt="" style="width: 320px; height:225px " />
+                    <div class="d-flex">
+                        <img class="card-img-top me-2 mb-2" src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width: 320px; height:225px" />
+                        <img class="card-img-top rounded-end mb-2" src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width: 320px; height:225px " />
                     </div>
-                    <div>
-                        <img class="card-img-top rounded-lg me-2" src="https://img.upanh.tv/2024/02/27/image-10.png"
-                            alt="" style="width: 320px; height:225px" />
-                        <img class="card-img-top rounded-lg" src="https://img.upanh.tv/2024/02/27/image-12.png" alt=""
-                            style="width: 320px; height:225px" />
+                    <div class="d-flex">
+                        <img class="card-img-top me-2" src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width: 320px; height:225px" />
+                        <img class="card-img-top rounded-end " src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width: 320px; height:225px" />
                     </div>
                 </div>
             </div>
@@ -95,20 +88,14 @@
                                     <span class=" fs-4">Số lượng khách</span>
                                 </div>
                                 <div class="number-input">
-                                    <button type="button"
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                        class="minus"></button>
+                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                                     <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                    <button type="button"
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                        class="plus"></button>
+                                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center m-5">
-                            <button
-                                class="btn  px-5 py-4 bg-danger text-center text-white rounded-4 cursor-pointer border-0 w-100"
-                                style="background-image: linear-gradient(to right,firebrick 30%, crimson);">
+                            <button class="btn  px-5 py-4 bg-danger text-center text-white rounded-4 cursor-pointer border-0 w-100" style="background-image: linear-gradient(to right,firebrick 30%, crimson);">
                                 <h3>Đặt phòng</h3>
                             </button>
                         </div>

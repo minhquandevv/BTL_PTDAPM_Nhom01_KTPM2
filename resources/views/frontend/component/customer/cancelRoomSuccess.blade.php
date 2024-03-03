@@ -5,7 +5,7 @@
                 <i class="fa-solid fa-chevron-left"></i>
             </a>
             <div class="text-decoration-none text-dark ">
-                <p class="fs-4 fw-bold text-center">Đơn đã đặt</p>
+                <p class="fs-4 fw-medium text-center">Đơn đã đặt</p>
             </div>
         </div>
         <div class="border rounded-4 my-5">
@@ -17,7 +17,7 @@
             <div class="row mx-4 ">
                 <div class="col-md-2 my-3">
                     <a href="#">
-                        <img class="card-img-top rounded-lg" src="https://img.upanh.tv/2024/02/27/image-8.png" alt="" style="width: 168px; height:138px" />
+                        <img class="card-img-top rounded-4" src="images/img-1.svg" alt="" style="width: 168px; height:138px" />
                     </a>
                 </div>
                 <div class="col-md-7 align-items-center mt-4">

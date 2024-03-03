@@ -1,11 +1,11 @@
 <section>
     <form class="container mx-auto bg-white" style="height:1000px">
         <div class="d-flex gap-5 align-items-center my-4 justify-content-center">
-            <a href="{{ route('home') }}" class="position-absolute  text-dark z-0 " style="top:118px;left:45px;z-index:0">
+            <a href="{{ route('home') }}" class="position-absolute z-0 text-dark " style="top:118px;left:45px;">
                 <i class="fa-solid fa-chevron-left"></i>
             </a>
             <div class="text-decoration-none text-dark ">
-                <p class="fs-4 fw-bold text-center"> Đánh giá và phản hồi</p>
+                <p class="fs-4 fw-medium text-center"> Đánh giá và phản hồi</p>
             </div>
         </div>
         <div class="border rounded-4 my-5">
@@ -17,7 +17,8 @@
             <div class="row mx-4 ">
                 <div class="col-md-2 my-3">
                     <a href="#">
-                        <img class="card-img-top rounded-lg" src="https://img.upanh.tv/2024/02/26/image-25.png" alt="" style="width: 168px; height:138px" />
+                        <img class="card-img-top rounded-4" src="images/img-1.svg" alt=""
+                            style="width: 168px; height:138px" />
                     </a>
                 </div>
                 <div class="col-md-7 align-items-center mt-4">
@@ -41,7 +42,8 @@
             <div class="row mx-4 ">
                 <div class="col-md-2 my-3">
                     <a href="#">
-                        <img class="card-img-top rounded-lg" src="https://img.upanh.tv/2024/02/26/image-31.png" alt="" style="width: 168px; height:138px" />
+                        <img class="card-img-top rounded-4" src="images/img-1.svg" alt=""
+                            style="width: 168px; height:138px" />
                     </a>
                 </div>
                 <div class="col-md-7 align-items-center mt-4">

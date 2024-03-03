@@ -10,16 +10,16 @@
         </div>
         <div class="d-flex w-100 mb-5 mt-3 ">
             <div class="pe-3">
-                <img class="card-img-top rounded-lg" src="https://i.upanh.org/2024/02/27/image_body44710f111b17e14a.png" alt="" style="width:650px; height : 465px;" />
+                <img class="card-img-top rounded-start" src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width:650px; height : 460px;" />
             </div>
             <div>
-                <div>
-                    <img class="card-img-top rounded-lg me-2 mb-3" src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width: 320px; height:225px" />
-                    <img class="card-img-top rounded-lg mb-3" src="https://img.upanh.tv/2024/02/27/image-11.png" alt="" style="width: 320px; height:225px " />
+                <div class="d-flex">
+                    <img class="card-img-top me-2 mb-2" src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width: 320px; height:225px" />
+                    <img class="card-img-top rounded-end mb-2" src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width: 320px; height:225px " />
                 </div>
-                <div>
-                    <img class="card-img-top rounded-lg me-2" src="https://img.upanh.tv/2024/02/27/image-10.png" alt="" style="width: 320px; height:225px" />
-                    <img class="card-img-top rounded-lg" src="https://img.upanh.tv/2024/02/27/image-12.png" alt="" style="width: 320px; height:225px" />
+                <div class="d-flex">
+                    <img class="card-img-top me-2" src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width: 320px; height:225px" />
+                    <img class="card-img-top rounded-end " src="https://img.upanh.tv/2024/02/27/image-9.png" alt="" style="width: 320px; height:225px" />
                 </div>
             </div>
         </div>
