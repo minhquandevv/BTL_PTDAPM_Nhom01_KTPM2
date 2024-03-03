@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\BookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +17,8 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.home.index');
 });
-
 //Route Home
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 //Route Auth
@@ -108,5 +109,3 @@ Route::get('deletehomestay', function () {
 Route::get('deletehomestay1', function () {
     return view('frontend.employee.SuccessDeleteHomestay');
 });
-
-
