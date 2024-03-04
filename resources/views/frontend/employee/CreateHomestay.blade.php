@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng phòng</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9e29fd661a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap/css/customize-register.css">
     <link rel="stylesheet" href="bootstrap/css/customize-employee.css">
@@ -20,13 +20,13 @@
                 <i class="fa-solid fa-angle-left"></i>
             </a>
             
-            <div class="text-up-pic w-100">Đăng ảnh</div>
+            <div class="text-up-pic w-100 fw-500">Đăng ảnh</div>
             <div></div>
         </div>
         {{--  --}}
         <div class="my-5 row ">     
             {{-- khung nhập --}}
-            <div class="border input-place-pic border-input-pic col order-2 order-md-1" >
+            <div class="border input-place-pic border-input-pic col order-2 order-md-1 pe-4" >
                 <table class="table custom-table-pic mt-3 mb-4 ms-3 me-5" id="create-homestay-table">
                     <tbody >
                         <tr >

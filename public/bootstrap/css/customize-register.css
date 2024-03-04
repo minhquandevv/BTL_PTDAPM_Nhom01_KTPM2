@@ -237,7 +237,13 @@ hr#line-custom{
     transform: translateY(-125%) scale(0.75);
   }
 
-
+  .error {
+    border: 1px solid #C13719 !important;
+}
+  .error-label {
+      font-weight: 500;
+      color: #C13719 !important;
+  }
   .font-Roboto{
     font-family: 'Roboto', sans-serif;
 

@@ -30,9 +30,9 @@
                     <p class="text-center grey-text text-5 d-flex justify-content-space-between ">Chào mừng đến với AirHome <div></div><div></div></p>
                     <div class="border rounded overflow-hidden">
                         
-                        <div class="form-floating border rounded overflow-hidden">    
-                            <input type="email" class="form-control border-0 text-8 grey-text" id="floatingEmail" placeholder="Email">
-                            <label for="floatingEmail">Email</label>
+                        <div class="form-floating border rounded overflow-hidden" id="email-regex">    
+                            <input type="email" class="form-control border-0 text-8 grey-text" id="floatingEmail1" placeholder="Email">
+                            <label for="floatingEmail1">Email</label>
 
                        </div> 
 
@@ -59,13 +59,34 @@
     </div>
 </div>
 
-<img src="bootstrap/css/patterns/icon-upload.svg" alt="">
+
+
   
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  
+<script>
+    const emailInput = document.getElementById('floatingEmail1');
+    const divemail = document.getElementById('email-regex');
+    const emailRegex = (/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/);
 
+    emailInput.addEventListener('input', function() {
+        const email = emailInput.value.trim();
+
+        if (emailRegex.test(email)) {
+            divemail.classList.remove('error');
+            document.querySelector('label[for="floatingEmail1"]').classList.remove('error-label');
+        } 
+        if(emailInput.value.length  === 0){
+            divemail.classList.remove('error');
+            document.querySelector('label[for="floatingEmail1"]').classList.remove('error-label');
+        }
+        else {
+            divemail.classList.add('error');
+            document.querySelector('label[for="floatingEmail1"]').classList.add('error-label');
+        }
+    });
+</script>
 
 </body>
 </html>
