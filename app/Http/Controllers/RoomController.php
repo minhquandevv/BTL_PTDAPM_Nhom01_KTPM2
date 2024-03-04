@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Models\Booking;
 use App\Models\Evaluate;
 use App\Models\Favorite;
@@ -19,6 +20,8 @@ class RoomController extends Controller
      */
     public function index(Request $request)
     {
+        $userData = new AuthController();
+        echo json_encode($userData->getSessionData()['Email']);
         $rooms = $this->searchPhongs($request->search);
         $rooms->appends(['search' => $request->search]);
         return view('backend.rooms.index', compact('rooms'));

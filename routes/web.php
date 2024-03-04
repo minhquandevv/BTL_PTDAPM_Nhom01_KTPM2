@@ -29,8 +29,16 @@ Route::resource('booking', \App\Http\Controllers\BookingController::class);
 Route::resource('employees', \App\Http\Controllers\EmployeeController::class);
 Route::resource('customers', \App\Http\Controllers\CustomerController::class);
 
-Route::get('/upload', [ImageController::class, 'showForm'])->name('upload.form');
-Route::post('/upload', [ImageController::class, 'uploadImage'])->name('upload.image');
+Route::get('/upload', [ImageController::class, 'showForm'])->name('upload');
+Route::post('/upload', [ImageController::class, 'uploadImage'])->name('upload');
+
+//Route::get('login', function () {
+//    return view('frontend/auth/login/indexq');
+//});
+
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'loginhandle'])->name('login');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 ////Route Home
