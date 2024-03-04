@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item me-4">
-                        <a class="nav-link fs-4 text-black fw-medium" href="#">Đăng nhập</a>
+                        <a class="nav-link fs-4 text-black fw-medium" href="{{ route('login') }}">Đăng nhập</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fs-4 text-black fw-medium" href="#">Đăng ký</a>

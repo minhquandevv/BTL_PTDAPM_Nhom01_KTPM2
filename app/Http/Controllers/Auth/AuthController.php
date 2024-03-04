@@ -48,9 +48,9 @@ class AuthController extends Controller
                 if ($userData['ChucVu'] == 'QuanLy') {
                     echo "Quan Ly";
                 } elseif ($userData['ChucVu'] == 'NhanVien') {
-                    echo "Nhan vien";
+                    return view('frontend\component\staff\homeIndex');
                 } else {
-                    echo "Khach hang";
+                    return redirect('frontend/component/customer/post');
                 }
             } else {
                 return redirect()->back()->with('errorPass', 'Mật khẩu sai');
@@ -59,7 +59,6 @@ class AuthController extends Controller
             return redirect()->back()->with('errorEmail', 'Tên đăng nhập không tồn tại');
         }
     }
-
     public function getSessionData()
     {
         $userData = Session::get('userData');

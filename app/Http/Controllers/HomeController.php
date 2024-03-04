@@ -13,6 +13,6 @@ class HomeController extends Controller
     public function index()
     {
         $templete = 'frontend.home.index';
-        return view('frontend.home.layout', compact('templete'));
+        return view('frontend/component/customer/post', compact('templete'));
     }
 }

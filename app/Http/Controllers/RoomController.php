@@ -22,9 +22,10 @@ class RoomController extends Controller
     {
         $userData = new AuthController();
         echo json_encode($userData->getSessionData());
-        $rooms = $this->searchPhongs($request->search);
-        $rooms->appends(['search' => $request->search]);
-        return view('backend.rooms.index', compact('rooms'));
+//        $rooms = $this->searchPhongs($request->search);
+//        $rooms->appends(['search' => $request->search]);
+        $rooms = Room::all();
+        return view('frontend/home/layout', compact('rooms'));
     }
 
     private function searchPhongs($searchQuery)
