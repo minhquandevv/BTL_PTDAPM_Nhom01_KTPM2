@@ -45,7 +45,13 @@ class AuthController extends Controller
                     'ChucVu' => $chucVu
                 ];
                 session(['userData' => $userData]);
-                echo json_encode($userData);
+                if ($userData['ChucVu'] == 'QuanLy') {
+                    echo "Quan Ly";
+                } elseif ($userData['ChucVu'] == 'NhanVien') {
+                    echo "Nhan vien";
+                } else {
+                    echo "Khach hang";
+                }
             } else {
                 return redirect()->back()->with('errorPass', 'Mật khẩu sai');
             }

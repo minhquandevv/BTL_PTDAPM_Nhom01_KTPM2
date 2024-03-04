@@ -21,17 +21,10 @@ class RoomController extends Controller
     public function index(Request $request)
     {
         $userData = new AuthController();
-        echo json_encode($userData->getSessionData()['Email']);
+        echo json_encode($userData->getSessionData());
         $rooms = $this->searchPhongs($request->search);
         $rooms->appends(['search' => $request->search]);
         return view('backend.rooms.index', compact('rooms'));
-
-//        return view('frontend/auth/login/index');
-//        return view('frontend/auth/register/completeProfile');
-//        return view('frontend/auth/register/registerEmail');
-//        return view('frontend/auth/register/registerPhone');
-
-
     }
 
     private function searchPhongs($searchQuery)
@@ -61,7 +54,7 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-
+        $imagePath = $this->uploadImage($request);
         $processedData = $this->processDataBeforeValidation($request->all());
         $request->validate([
             'TenPhong' => 'required|string|max:255',
@@ -103,9 +96,6 @@ class RoomController extends Controller
 
             'DienTichBalcon.numeric' => 'Diện tích ban công phải là số.',
         ]);
-
-
-        // Tạo một đối tượng Room từ dữ liệu đầu vào
         $room = Room::create([
             'TenPhong' => $request->input('TenPhong'),
             'GioiThieuPhong' => $request->input('GioiThieuPhong'),
@@ -123,7 +113,24 @@ class RoomController extends Controller
             'DienTichBalcon' => $request->input('DienTichBalcon'),
         ]);
 
-        return view('backend.rooms.show', compact('room'));
+        ImgRoom::create([
+            'MaPhong' => $room->MaP,  // Use the actual value of an existing record's MaP
+            'DuongDanAnh' => $imagePath,
+        ]);
+    }
+
+    private function uploadImage($request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images/room'), $imageName);
+
+        $imagePath = asset("images/room/$imageName");
+        $relativeImagePath = str_replace('http://127.0.0.1:8000/', '', $imagePath);
+        return $relativeImagePath;
     }
 
     private function processDataBeforeValidation(array $data)

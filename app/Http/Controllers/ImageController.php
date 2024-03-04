@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
-    public function showForm()
+    public function showForm(Request $request)
     {
+        $request = $request->Map;
         return view('upload');
     }
 

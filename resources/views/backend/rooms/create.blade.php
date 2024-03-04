@@ -10,7 +10,7 @@
 </head>
 <body class="container">
 <h1 class="text-center">Thêm 1 phòng</h1>
-<form action="{{ route('rooms.store') }}" method="POST">
+<form action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label for="TenPhong">Tên Phòng:</label>
@@ -114,6 +114,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
+    <input type="file" name="image" accept="image/*" required>
     <!-- Thêm các trường thông tin phòng khác tại đây -->
     <button class="btn btn-success" type="submit">Thêm</button>
 </form>
