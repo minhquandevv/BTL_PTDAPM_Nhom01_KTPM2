@@ -23,4 +23,9 @@ class ImgRoom extends Model
     {
         return $this->belongsTo(Room::class, 'MaPhong', 'MaP');
     }
+
+    public function imgRoom()
+    {
+        return $this->belongsTo(ImgRoom::class, 'MaPhong', 'MaPhong');
+    }
 }

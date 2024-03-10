@@ -1,0 +1,174 @@
+.fw-700{
+    font-weight: 700 !important;
+}
+
+.custom-container-employee{
+    width: 95%;
+    margin: auto;
+}
+
+.text-up-pic{
+    font-size: 30px;
+    line-height: 20px;
+    letter-spacing: 0em;
+}
+
+.custom-icon-image{
+    width: 8px;
+    height: 12px;
+
+}
+
+.custom-border-pic{
+    border-color: #717171;
+}
+
+.input-place-pic{
+    /* width: 816px;
+    height: 671px; */
+    border: 1px solid #717171;
+    border-radius: 20px;
+
+}
+.fw-700{
+    font-weight: 700;
+}
+.input-place-label{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+}
+
+.input-code-homestay{
+    width:  142px;
+    height: 50px;
+}
+.border-input-pic{
+    padding: 10px 12px 10px 12px;
+    border: 1px solid #717171!important;
+}
+.input-name-homestay{
+    width:  300px;
+    height: 50px;
+    
+}
+
+#create-homestay-table .custom-td {
+    vertical-align: middle;
+  }
+
+.custom-table-pic{
+    border-color: transparent;
+}
+
+.upload-picture{
+    /* width: 485px; */
+    height: 356px;
+    border: 1px dashed #717171!important;
+
+}
+
+.text-custom-addpic{
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+
+}
+ .btn-color{
+    background-color: #FF385C !important;
+     background-image: linear-gradient(to right,#E61E4D00 0%, #E31C5F80 50%, #D70466 100%);
+    /* font-weight: 500!important; */
+    color: #FFFFFF;
+    height: 48px;
+    width: 240px;
+
+    
+}
+
+.mt-10{
+    margin-top: 100px!important;
+}
+
+.text-input-pic{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-align: justify;
+
+}
+
+.label-add-image{
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+
+
+}
+/* edit */
+.text-edit-pic{
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+
+}
+
+.edit-icon-image{
+    width: 4px;
+    height: 8px;
+}
+
+.ms-10{
+    margin-left: 100px!important;
+    margin-right: 100px !important;
+}
+
+.image-border-left{
+    /* width: 560px; */
+    /* height: 419.56px; */
+    border-top-left-radius: 20px; 
+    border-bottom-left-radius: 20px;
+}
+.spacing-padding{
+    padding: 10px;
+}
+
+.image-border-top-right{
+    /* width: 270px; */
+    /* height: 203.25px; */
+    border-top-right-radius: 20px   !important; 
+}
+
+.image-border-bottom-right{
+    /* width: 270px; */
+    /* height: 203.25px; */
+    border-bottom-right-radius: 20px; 
+}
+
+.img-default-homestay{
+    /* width: 271px; */
+    /* height: 203.25px; */
+
+}
+.col-width {
+    width: 210px;
+  }
+
+  .text-content-edit-homestay{
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0em;
+}
+
+.icon-p{
+    width: 45.86px;
+    height: 45.86px;
+}
+
+.col-width-2 {
+    width: 10px;
+  }

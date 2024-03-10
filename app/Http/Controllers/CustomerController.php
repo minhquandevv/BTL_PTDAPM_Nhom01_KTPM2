@@ -15,21 +15,42 @@ class CustomerController extends Controller
      */
     public function index(Request $request)
     {
-        $customers = $this->searchCustomers($request->search);
-        $customers->appends(['search' => $request->search]);
-        return view('backend.customers.index', compact('customers'));
+        $perPage = $request->page <= 1 ? 8 : $request->page * 8;
+        $customers = $this->searchPhongs($request->search, $perPage);
+        return view('frontend.staff.customerServiceManagement', compact('customers'));
     }
 
-    private function searchCustomers($searchQuery)
+    private
+    function searchPhongs($searchQuery, $perPage)
     {
         if ($searchQuery) {
-            return Customer::where('Email', 'like', "%{$searchQuery}%")
-                ->paginate(15);
+            return Customer::where('TenKH', 'like', "%{$searchQuery}%")->take($perPage)->get();
         } else {
-            return Customer::paginate(15);
+            return Customer::take($perPage)->get();
         }
     }
 
+    public function show(string $id)
+    {
+        // Find the employee by MaNV (assuming MaNV is the primary key)
+        $customer = Customer::find($id);
+
+        // Check if the employee exists
+        if ($customer) {
+            return view("frontend.staff.manageCustomerAccounts", compact('customer'));
+        } else {
+            // Handle the case where the employee with the given ID is not found
+            echo json_encode(['error' => 'Employee not found']);
+        }
+    }
+
+    public
+    function getcomfirmdeleteaccout(Request $request, $id)
+    {
+        // Uncomment the following lines if you want to fetch the customer and display the confirmation form
+        $customer = Customer::find($id);
+        return view('frontend/staff/DeleteAccountForm', compact('customer'));
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -58,7 +79,7 @@ class CustomerController extends Controller
 
         $customer->delete();
 
-        echo "deleted";
+        return view('frontend.staff.DeleteAccountSuccess');
     }
 
 }

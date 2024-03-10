@@ -44,4 +44,9 @@ class Room extends Model
     {
         return $this->belongsTo(RoomType::class, 'MaLoaiPhong', 'MaLoaiPhong');
     }
+
+    public function imgroom()
+    {
+        return $this->hasMany(ImgRoom::class, 'MaPhong', 'MaP');
+    }
 }

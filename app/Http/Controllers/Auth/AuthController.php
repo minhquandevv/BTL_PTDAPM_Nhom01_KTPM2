@@ -16,13 +16,14 @@ class AuthController extends Controller
 
     }
 
-    public function login()
+    public function  login()
     {
-        return view('frontend/auth/login/index');
+        return view('frontend/auth/login/login2');
     }
 
     public function loginhandle(Request $request)
     {
+
         $validatedData = $request->validate([
             'Email' => 'required|email',
             'Password' => 'required|min:8',
@@ -39,18 +40,20 @@ class AuthController extends Controller
             if (password_verify($request->input('Password'), $userEmail->Password)) {
                 $ma = $employee ? $employee->MaNV : $customer->MaKH;
                 $chucVu = $employee ? $employee->Chucvu : "";
+                $name = $employee ? $employee->TenQL : $customer->TenKH;
                 $userData = [
                     'Email' => $request->input('Email'),
                     'Ma' => $ma,
-                    'ChucVu' => $chucVu
+                    'ChucVu' => $chucVu,
+                    'Name' => $name
                 ];
                 session(['userData' => $userData]);
                 if ($userData['ChucVu'] == 'QuanLy') {
-                    echo "Quan Ly";
+                    return redirect()->route("homemanager");
                 } elseif ($userData['ChucVu'] == 'NhanVien') {
-                    return view('frontend\component\staff\homeIndex');
+                    return redirect()->route("employeehome");
                 } else {
-                    return redirect('frontend/component/customer/post');
+                    return redirect()->route("bookinghome");
                 }
             } else {
                 return redirect()->back()->with('errorPass', 'Mật khẩu sai');
@@ -59,24 +62,11 @@ class AuthController extends Controller
             return redirect()->back()->with('errorEmail', 'Tên đăng nhập không tồn tại');
         }
     }
-    public function getSessionData()
-    {
-        $userData = Session::get('userData');
-
-        if ($userData) {
-            // User data exists in the session
-            return $userData;
-        } else {
-            // User data not found in the session
-            return response()->json(['error' => 'User data not available in session'], 404);
-        }
-    }
 
 
     public function logout()
     {
         Session::flush();
-
-        return view('frontend/auth/login/index');
+        return redirect()->route("bookinghome");
     }
 }

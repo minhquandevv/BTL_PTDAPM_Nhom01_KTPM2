@@ -30,9 +30,23 @@ class Booking extends Model
         return $this->belongsTo(Customer::class, 'MaKH', 'MaKH');
     }
 
+    public function imgroom()
+    {
+        return $this->hasMany(ImgRoom::class, 'MaPhong', 'MaPhong');
+    }
+
     // Quan hệ với bảng 'phong'
     public function room()
     {
         return $this->belongsTo(Room::class, 'MaPhong', 'MaP');
+    }
+
+    public function datphong()
+    {
+        return $this->belongsTo(Payment::class, 'MaDatPhong', 'MaDatPhong');
+    }
+    public function danhgia()
+    {
+        return $this->belongsTo(Evaluate::class, 'MaDatPhong', 'MaDanhGia');
     }
 }

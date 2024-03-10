@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     @include('frontend.component.head')
 </head>
 
 <body>
-<div id="wrapper">
-    @include('frontend.component.navbar')
-    @include($template)
-    @include('frontend.component.footer')
-</div>
-@include('frontend.component.script')
+    <header>
+        <nav>
+            <!-- Navigation bar content -->
+            @include('frontend.component.navbar')
+        </nav>
+    </header>
+
+    <main>
+        @yield('content')
+    </main>
+    <footer>
+        @include('frontend.component.footer')
+    </footer>
+
 </body>
 
 </html>

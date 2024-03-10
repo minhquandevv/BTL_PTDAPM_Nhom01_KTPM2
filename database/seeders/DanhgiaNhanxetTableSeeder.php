@@ -14,7 +14,7 @@ class DanhgiaNhanxetTableSeeder extends Seeder
 
         foreach (range(1, 50) as $index) {
             DB::table('danhgia_nhanxet')->insert([
-                'MaDatPhong' => $faker->numberBetween(1, 50), // Assuming MaDatPhong range from 1 to 50
+                'MaDatPhong' => $faker->numberBetween(40, 50), // Assuming MaDatPhong range from 1 to 50
                 'DiemDanhGia' => $faker->numberBetween(1, 5),
                 'NhanXet' => $faker->paragraph,
                 'created_at' => now(),

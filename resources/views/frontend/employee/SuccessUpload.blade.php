@@ -19,7 +19,7 @@
         <div class="col-md-6">
             <div class="card" >
                 <div class="card-header text-center fw-bold d-flex  padding-form">
-                    <a class="text-dark text-decoration-none" href="">
+                    <a class="text-dark text-decoration-none" href="/createhomestay">
                         <i class="fa-solid fa-xmark"></i>
                     </a>
                     
@@ -33,8 +33,10 @@
                         <p class="text-center grey-text text-edit1 mt-2">Đăng phòng thành công!</p>
                        </div>
                        {{-- lỗi css --}}
-                       <button type="button" class="btn  w-100 py-3 mt-2 rounded btn-dark text-register text-light fw-500" id="continue-button-edit">Tiếp tục</button>
+                       <a href="/roommanagement">
+                            <button type="button" class="btn  w-100 py-3 mt-2 rounded btn-dark text-register text-light fw-500" id="continue-button-edit">Tiếp tục</button>
 
+                       </a>
                     </form>
                 </div>
             </div>

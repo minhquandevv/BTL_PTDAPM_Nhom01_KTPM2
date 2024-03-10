@@ -19,10 +19,10 @@
         <div class="col-md-6">
             <div class="card" >
                 <div class="card-header text-center fw-bold d-flex  padding-form">
-                    <a class="text-dark text-decoration-none" href="">
+                    <a class="text-dark text-decoration-none" href="/roommanagement">
                         <i class="fa-solid fa-xmark"></i>
                     </a>
-                    
+
                     <div class=" text-register text-header w-100">Thông báo</div>
                 </div>
                 <div id="register-body" class="card-body">
@@ -32,7 +32,9 @@
                         <img width="71px" height="70px" src="bootstrap/css/patterns/icon-v.svg" alt="v-image">
                         <p class="text-center grey-text text-edit1 mt-2">Xóa phòng thành công!</p>
                        </div>
-                       <button type="button" class="btn  w-100 py-3 mt-2 rounded btn-dark text-register text-light fw-500" id="accept-edit-button">Xác nhận</button>
+                       <a href="/roommanagement">
+                        <button type="button" class="btn  w-100 py-3 mt-2 rounded btn-dark text-register text-light fw-500" id="accept-edit-button">Xác nhận</button>
+                    </a>
                     </form>
                 </div>
             </div>
@@ -40,8 +42,8 @@
     </div>
 </div>
 
- 
-  
+
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 

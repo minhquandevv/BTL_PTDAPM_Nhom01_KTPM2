@@ -10,9 +10,43 @@ class HomeController extends Controller
     {
 
     }
+
     public function index()
     {
-        $templete = 'frontend.home.index';
-        return view('frontend/component/customer/post', compact('templete'));
+        return view('frontend.home.index');
     }
+
+
+    public function bookinghistory()
+    {
+        return view('frontend.component.customer.bookingHistory');
+    }
+
+    public function bookinghome()
+    {
+        return view('frontend.component.customer.bookingHistory');
+    }
+
+
+    public function employeehome()
+    {
+        $userData = session('userData');
+        if (!empty($userData) && $userData['ChucVu'] == "NhanVien") {
+            return view('frontend.staff.homeIndex');
+        }
+        return redirect()->route('bookinghome');
+//
+    }
+
+    public
+    function homeManager()
+    {
+        $userData = session('userData');
+        if (!empty($userData) && $userData['ChucVu'] == "QuanLy") {
+            return view('frontend.manager.homeManager');
+        }
+        return redirect()->route('bookinghome');
+
+    }
+
 }

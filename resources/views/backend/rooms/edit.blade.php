@@ -37,9 +37,7 @@
     <div class="mb-3">
         <label for="TinhTrang">Tình trạng:</label>
         <input class="form-control" type="text" value="{{ $room->TinhTrang }}" id="TinhTrang" name="TinhTrang"/>
-        @error('TinhTrang')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+
     </div>
     <button class="btn btn-success" type="submit">Cập nhật</button>
 </form>

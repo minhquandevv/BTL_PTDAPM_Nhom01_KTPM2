@@ -1,3 +1,26 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
+select option[data-image] {
+  padding-left: 30px; /* Để tạo khoảng trống giữa hình ảnh và nội dung văn bản */
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+select option[data-image="bootstrap/css/patterns/vnpay.svg"] {
+  background-image: url("bootstrap/css/patterns/vnpay.svg");
+  /* Điều chỉnh các thuộc tính khác tùy thuộc vào kích thước và vị trí của hình ảnh */
+}
+
+.select-pay{
+  height: 50px;
+}
+#register-body1 input:read-only{
+  background-color: #FFFFFF!important; 
+}
+
+
+
 /* Form 1 Register */
 hr#line-custom{
   border: 1px solid #DDDDDD;
@@ -19,13 +42,12 @@ hr#line-custom{
 }
 #register-body .letter-input{
     letter-spacing: 2%!important;
-    /* font-family: 'Roboto', sans-serif; */
     color: #717171;
 }
 #register-body .form-control{
     font-size: 1rem;
     height: 56px;
-    font-weight: 450;
+    font-weight: 400;
     line-height: 20px;
     letter-spacing: 0.02em;
     color:#222222;
@@ -56,24 +78,48 @@ hr#line-custom{
 }
 .text-register-warning{
     color: #717171;
-    /* font-family: 'Roboto', sans-serif; */
     margin: 8px 0;
 }
 #gender .form-check{
     width: 100px;
 }
+#gender-profile .form-check{
+  width: 100px;
+}
+/* radio */
+#gender-profile .form-check-input[type=radio]{
+    border-radius: 50%;
+    border: 2px solid #717171;
+}
+
+#gender-profile .form-check-input:checked{
+  background-color: #FF385C !important;
+  border: 2px solid #C6193E;
+}
+#gender-profile .form-check-input:checked[type=radio]{
+  --bs-form-check-bg-image:  radial-gradient(closest-side, #E2057A 65%, transparent  5%, #FFFFFF 20%);
+    
+    
+}
 .padding-form{
     padding: 22px 24px;
 }
 #register-body .btn-danger{
-    background-image: linear-gradient(to right,#E61E4D00 0%, #E31C5F80 50%, #D70466 100%);
-    font-weight: 450!important;
-    color: #FFFFFF;
+  background-color: #FF385C !important;
+  background-image: linear-gradient(to right,#E61E4D00 0%, #E31C5F80 50%, #D70466 100%);
+  color: #FFFFFF;
+
+}
+
+#register-body-profile .btn-danger{
+  background-color: #FF385C !important;
+  background-image: linear-gradient(to right,#E61E4D00 0%, #E31C5F80 50%, #D70466 100%);
+ /* font-weight: 500!important; */
+  color: #FFFFFF;
 
 }
 /* chú ý */
 .text-register{
-    /* font-family: 'Roboto', sans-serif; */
     font-size: 16px;
     line-height: 20px;
     text-align: center;
@@ -88,7 +134,11 @@ hr#line-custom{
 
 #fw-500{
     font-weight: 500;
-    color: black !important ;
+    color: #222222 !important ;
+}
+#d-val-otp{
+  font-size: 20px;
+
 }
 
 #register-body a{
@@ -97,7 +147,7 @@ hr#line-custom{
 
 }
 #register-body .btn-show{
-    /* font-family: 'Roboto', sans-serif; */
+
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;
@@ -128,7 +178,7 @@ hr#line-custom{
 
 .text-error{
 
-    /* font-family: 'Roboto', sans-serif; */
+
     font-size: 12px;
     font-weight: 500;
     line-height: 16px;
@@ -186,19 +236,25 @@ hr#line-custom{
     transform: translateY(-125%) scale(0.75);
   }
 
-
+  .error {
+    border: 1px solid #C13719 !important;
+}
+  .error-label {
+      font-weight: 500;
+      color: #C13719 !important;
+  }
   .font-Roboto{
     font-family: 'Roboto', sans-serif;
 
   }
 
   .grey-text{
-    color: #222222;
+    color: #222222  !important;
     ;
   }
 
   .grey71-text{
-    color: #717171;
+    color: #717171 !important;
   }
   .lds-ellipsis {
     display: inline-block;
@@ -360,8 +416,8 @@ input#floatingOTP{
 }
 #continue-button3 {
   padding: 0;
-  height: 48px;
-  width: 106px;
+  height: 60px;
+  width: 108px;
 }
 
 a#call-me{
@@ -423,3 +479,8 @@ a#later{
 #floatingOTP:focus + #d-val-otp {
   color: red;
 }
+
+/* Form 2 Quản lý thông tin cá nhân
+#store-profile.btn-danger{
+  font-weight: 500;
+} */

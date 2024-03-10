@@ -22,7 +22,7 @@
         <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
     </div>
 </form>
-<a type="button" class="btn btn-success" href="{{ route('employees.create') }}">Thêm tai khoan</a>
+<a type="button" class="btn btn-success" href="{{ route('employees.create') }}">Thêm NV</a>
 <table class="table">
     <thead>
     <tr>
@@ -32,10 +32,10 @@
     </thead>
     <tbody>
 
-    @foreach ($accounts as $account)
+    @foreach ($employees as $employee)
         <tr>
-            <th scope="row">{{ $account->TenDangNhap}}</th>
-            <th scope="col"><a href="{{ route('employees.show', $account)}}">
+            <th scope="row">{{ $employee->MaNV}}</th>
+            <th scope="col"><a href="{{ route('employees.show', $employee->MaNV)}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-eye" viewBox="0 0 16 16">
                         <path
@@ -43,7 +43,7 @@
                         <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
                     </svg>
                 </a></th>
-            <th scope="col"><a href="{{ route('employees.edit', $account)}}">
+            <th scope="col"><a href="{{ route('employees.edit', $employee->MaNV)}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-pen" viewBox="0 0 16 16">
                         <path
@@ -51,7 +51,7 @@
                     </svg>
                 </a></th>
             <th scope="col">
-                <form action="{{ route('employees.destroy', $account) }}" method="POST">
+                <form action="{{ route('employees.destroy', $employee->MaNV) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button class="border-0 bg-transparent" type="submit" onclick="confirmDelete()">
@@ -71,28 +71,28 @@
 </table>
 <ul class="pagination">
     {{-- Nút "Previous" --}}
-    @if ($accounts->onFirstPage())
+    @if ($employees->onFirstPage())
         <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
             <span class="page-link" aria-hidden="true">&lsaquo;</span>
         </li>
     @else
         <li class="page-item">
-            <a class="page-link" href="{{ $accounts->previousPageUrl() }}" rel="prev"
+            <a class="page-link" href="{{ $employees->previousPageUrl() }}" rel="prev"
                aria-label="@lang('pagination.previous')">&lsaquo;</a>
         </li>
     @endif
 
     {{-- Danh sách các trang --}}
-    @foreach ($accounts->getUrlRange(1, $accounts->lastPage()) as $page => $url)
-        <li class="page-item {{ ($page == $accounts->currentPage()) ? 'active' : '' }}">
+    @foreach ($employees->getUrlRange(1, $employees->lastPage()) as $page => $url)
+        <li class="page-item {{ ($page == $employees->currentPage()) ? 'active' : '' }}">
             <a class="page-link" href="{{ $url }}">{{ $page }}</a>
         </li>
     @endforeach
 
     {{-- Nút "Next" --}}
-    @if ($accounts->hasMorePages())
+    @if ($employees->hasMorePages())
         <li class="page-item">
-            <a class="page-link" href="{{ $accounts->nextPageUrl() }}" rel="next"
+            <a class="page-link" href="{{ $employees->nextPageUrl() }}" rel="next"
                aria-label="@lang('pagination.next')">&rsaquo;</a>
         </li>
     @else
