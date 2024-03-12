@@ -31,11 +31,17 @@
         </div>
 
         <div class="row ">
-            <form action="{{ route('employees.update', $employee) }}" method="POST"
+            <form action="{{ route('updateEmployee') }}" method="POST"
                   class="d-flex justify-content-around border rounded mx-auto col-12"
                   style="width: 1358px ; height: 671px ">
                 @csrf
                 @method('PUT')
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                <input class="d-none" value="{{$employee['MaNV']}}" name="MaNV" readonly>
                 <div class="align-items-center col-4" style="margin-top: 10vh">
                     {{--                    <div class="mb-3 row align-items-center">--}}
                     {{--                        <label for="exampleInputEmail1" class="form-label col">Tên đăng nhập:</label>--}}
@@ -67,94 +73,93 @@
                     </div>
                     <div class="mb-3 row align-items-center">
                         <label for="exampleInputPassword1" class="form-label col">Tên nhân viên:</label>
-                        <input type="text" class="form-control col" value="{{$employee['TenQL']}}" readonly
+                        <input type="text" class="form-control col" value="{{$employee['TenQL']}}" name="TenQL"
                                id="exampleInputPassword1">
+                        @error('Chucvu')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3 row align-items-center">
                         @php
-                            $dateTime = new DateTime($employee['NgaySinh']);
-                            $formattedDate = $dateTime->format('m/d/Y');
+                            $ngay_moi = date("Y-m-d", strtotime($employee['NgaySinh']));
                         @endphp
                         <label for="exampleInputPassword1" class="form-label col">Ngày sinh:</label>
-                        <input type="text" class="form-control col" value="{{$formattedDate}}" readonly
+                        <input type="date" class="form-control col" value="{{$ngay_moi}}" name="NgaySinh"
                                id="exampleInputPassword1"
                                placeholder="acb">
+                        @error('NgaySinh')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3 row align-items-center">
                         <label for="form-check form-check-inline" class="col">Giới tính:</label>
                         <div class="form-control col border-0 d-flex" id="gender-profile">
                             <div class="form-check form-check-inline col align-items-center">
-                                <input class="form-check-input col" type="radio" name="inlineRadioOptions"
+                                <input class="form-check-input col" type="radio" name="GioiTinh"
                                        id="inlineRadio1" value="Nam" {{$employee['GioiTinh']=="Nam" ? "checked" : ""}} >
                                 <label class="form-check-label " for="inlineRadio1"
                                        style="font-weight: 400 ; font-size: 16px ; line-height: 16px ">Nam</label>
                             </div>
                             <div class="form-check form-check-inline col ">
-                                <input class="form-check-input col" type="radio" name="inlineRadioOptions"
+                                <input class="form-check-input col" type="radio" name="GioiTinh"
                                        id="inlineRadio2" {{$employee['GioiTinh']=="Nu" ? "checked" : ""}} value="Nu">
                                 <label class="form-check-label" for="inlineRadio2"
                                        style="font-weight: 400 ; font-size: 16px ; line-height: 16px ">Nữ</label>
                             </div>
                         </div>
+                        @error('GioiTinh')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="align-items-center col-4" style="margin-top: 10vh">
                     <div class="mb-3 row align-items-center">
                         <label for="exampleInputEmail1" class="form-label col">Địa chỉ:</label>
-                        <input type="email" class="form-control col" value="{{$employee['DiaChi']}}" readonly
+                        <input type="text" class="form-control col" value="{{$employee['DiaChi']}}" name="DiaChi"
                                id="tendangnhap">
+                        @error('DiaChi')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3 row align-items-center">
                         <label for="exampleInputEmail1" class="form-label col">Email:</label>
-                        <input type="email" class="form-control col" value="{{$employee['Email']}}" readonly
+                        <input type="email" class="form-control col" value="{{$employee['Email']}}" name="Email"
                                id="tendangnhap">
+                        @error('Email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3 row align-items-center">
                         <label for="exampleInputEmail1" class="form-label col">Số điện thoại:</label>
-                        <input type="email" class="form-control col" value="{{$employee['SoDienThoai']}}" readonly
+                        <input type="text" class="form-control col" value="{{$employee['SoDienThoai']}}"
+                               name="SoDienThoai"
                                id="tendangnhap">
+                        @error('SoDienThoai')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3 row align-items-center">
                         <label for="exampleInputEmail1" class="form-label col">Lương:</label>
-                        <input type="email" class="form-control col" value="{{rand(10000000, 20000000)}}" readonly
+                        <input type="text" class="form-control col" value="{{rand(10000000, 20000000)}}"
+                               id="tendangnhap" name="Luong"/>
+                        @error('Luong')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3 row align-items-center">
+                        <label for="exampleInputEmail1" class="form-label col">pass:</label>
+                        <input type="password" class="form-control col" name="Password"
                                id="tendangnhap">
+                        @error('Password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
-                    <div class="rounded-4 border mx-4 position-relative" style="width:300px; height:300px">
-                        <div class="py-4 d-flex justify-content-center ">
-                            @if(isset($employee['DuongDanAnh']))
-                                <img class="card-img-top rounded-circle"
-                                     src="{{ asset($employee['DuongDanAnh']) }}"
-                                     style="height: 150px;width: 150px"/>
-                            @else
-                                <img src="https://i.upanh.org/2024/02/27/image-338f9269a01ee5bd98.png"
-                                     alt="image-338f9269a01ee5bd98.png">
-                            @endif
-                        </div>
-                        <div class="text-center">
-                            <a href="#" class="text-dark text-decoration-none fs-3 fw-medium">{{$employee['TenQL']}}</a>
-                        </div>
-                        <div class="position-absolute" style="top:10px;left:10px">
-                            {{--                            <a href="/editemployee">--}}
-                            {{--                                <button type="button" class="btn border-0 p-1 ">--}}
-                            {{--                                    <i class="fa-regular fa-pen-to-square fa-2xl"></i>--}}
-                            {{--                                </button>--}}
-                            {{--                            </a>--}}
-                            {{--                            <a href="/deleteeform">--}}
-                            {{--                                <button type="button" class="btn border-0 p-1">--}}
-                            {{--                                    <i class="fa-solid fa-trash-can fa-2xl" style="color: #ff0000;"></i>--}}
-                            {{--                                </button>--}}
-                            {{--                            </a>--}}
-                            <a href="{{ route('manageemdeleteeformployeeaccounts', $employee->MaNV)}}">
-                                <button type="button" class="btn border-0 p-1">
-                                    <i class="fa-solid fa-trash-can fa-2xl" style="color: #ff0000;"></i>
-                                </button>
-                            </a>
-                        </div>
+                    <button type="submit">Cập nhật</button>
 
-                    </div>
                 </div>
             </form>
+
         </div>
     </div>
 

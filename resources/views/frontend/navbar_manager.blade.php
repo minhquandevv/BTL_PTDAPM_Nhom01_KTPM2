@@ -87,7 +87,7 @@
 
                                 </li>
                                 <li>
-                                    <a href="/profile1" class="text-decoration-none">
+                                    <a href="{{route('manage_profile')}}" class="text-decoration-none">
                                         <button class="dropdown-item  border-bottom border-secondary-subtler py-2 fs-6"
                                                 type="button" style="border-color:blueviolet">Quản lí thông tin cá nhân
                                         </button>

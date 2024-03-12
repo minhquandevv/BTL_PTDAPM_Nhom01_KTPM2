@@ -177,9 +177,13 @@ Route::get('addemployee', [\App\Http\Controllers\EmployeeController::class, 'add
 Route::get('manageemployeeaccounts', [\App\Http\Controllers\EmployeeController::class, 'manageemployeeaccounts'])->name('manageemployeeaccounts');
 Route::get('manageeminforployeeaccounts/{id}', [\App\Http\Controllers\EmployeeController::class, 'manageeminforployeeaccounts'])->name('manageeminforployeeaccounts');
 Route::get('manageemdeleteeformployeeaccounts/{id}', [\App\Http\Controllers\EmployeeController::class, 'manageemdeleteeformployeeaccounts'])->name('manageemdeleteeformployeeaccounts');
+Route::match(['post', 'put'], 'updateEmploye', [\App\Http\Controllers\EmployeeController::class, 'updateEmployee'])->name('updateEmployee');
+Route::match(['post', 'put'], 'updateEmploye', [\App\Http\Controllers\EmployeeController::class, 'updateEmployee'])->name('updateEmployee');
+Route::get('manage_profile', [\App\Http\Controllers\EmployeeController::class, 'manage_profile'])->name('manage_profile');
+Route::get('editinfor', [\App\Http\Controllers\EmployeeController::class, 'editinfor'])->name('editinfor');
 
-//Route::get('addemployee', function () {
-//    return view('frontend.manager.add');
+//Route::get('mp1', function () {
+//    return view('frontend/manage_profile/customers/c_profile');
 //});
 
 // thêm nhân viên thành công
@@ -246,13 +250,13 @@ Route::post('personalaccountmanagement/{id}', [\App\Http\Controllers\EmployeeCon
 
 
 //new
-Route::get('mp1', function () {
-    return view('frontend/manage_profile/customers/c_profile');
-});
+//Route::get('mp1', function () {
+//    return view('frontend/manage_profile/customers/c_profile');
+//});
 //Quản lý thông tin khách hàng
-Route::get('profile1', function () {
-    return view('frontend.manage_profile.customers.profile1');
-});
+//Route::get('profile1', function () {
+//    return view('frontend.manage_profile.customers.profile1');
+//});
 //new
 Route::get('completeprofile', function () {
     return view('frontend.manage_profile.customers.last');

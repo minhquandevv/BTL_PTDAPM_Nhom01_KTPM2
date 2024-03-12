@@ -15,7 +15,8 @@
     <div class="container-fluid">
         <div class=" row collapse navbar-collapse " id="navbarSupportedContent">
             <div class="d-flex col-3 justify-content-center">
-                <a href="{{route("bookinghome")}}" class="d-flex">
+                <a href="{{Session::get('userData')['ChucVu']=="QuanLy"  ? route("homemanager") : (Session::get('userData')['ChucVu']=="NhanVien" ? route("employeehome") : route("bookinghome"))}}"
+                   class="d-flex">
                     <img class="card-img-top-logo rounded-lg " src="{{asset('images/logo-home.svg')}}" alt="/"
                          style="height:41px"/>
                     <img class="card-img-top-text rounded-lg" src="{{asset("images/text_home.svg")}}" alt="/"

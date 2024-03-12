@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Employee;
 use Illuminate\Console\View\Components\Mutators\EnsureDynamicContentIsHighlighted;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class EmployeeController extends Controller
 {
@@ -38,9 +39,10 @@ class EmployeeController extends Controller
 
         if ($searchQuery) {
             return Employee::where('TenQL', 'like', "%{$searchQuery}%")
-                ->orWhere('Chucvu', 'like', "NhanVien")
+                ->where('Chucvu', 'like', "NhanVien")
                 ->take($perPage)
                 ->get();
+
         } else {
             return Employee::where('Chucvu', 'like', "NhanVien")->take($perPage)->get();
         }
@@ -146,12 +148,46 @@ class EmployeeController extends Controller
         }
     }
 
+    public function manage_profile()
+    {
+        // Check if the 'userData' session key exists and has 'Ma' field
+        if (Session::has('userData') && array_key_exists('Ma', Session::get('userData'))) {
+            $employee = Employee::find(Session::get('userData')['Ma']);
+            if ($employee) {
+                return view('frontend.manage_profile.customers.profile1', compact('employee'));
+            } else {
+                // Handle the case where the employee with the given ID is not found
+                echo json_encode(['error' => 'Employee not found']);
+            }
+        } else {
+            // Handle the case where the 'userData' session key is not set or does not have 'Ma' field
+            echo json_encode(['error' => 'Invalid session data']);
+        }
+    }
+
+    public function editinfor()
+    {
+        // Check if the 'userData' session key exists and has 'Ma' field
+        if (Session::has('userData') && array_key_exists('Ma', Session::get('userData'))) {
+            $employee = Employee::find(Session::get('userData')['Ma']);
+            if ($employee) {
+                return view('frontend/manage_profile/customers/c_profile', compact('employee'));
+            } else {
+                // Handle the case where the employee with the given ID is not found
+                echo json_encode(['error' => 'Employee not found']);
+            }
+        } else {
+            // Handle the case where the 'userData' session key is not set or does not have 'Ma' field
+            echo json_encode(['error' => 'Invalid session data']);
+        }
+    }
+
+
     public function manageeminforployeeaccounts(string $id)
     {
 
         // Find the employee by MaNV (assuming MaNV is the primary key)
         $employee = Employee::find($id);
-        echo json_encode($employee);
         // Check if the employee exists
         if ($employee) {
             return view("frontend.staff.testk", compact('employee'));
@@ -214,6 +250,54 @@ class EmployeeController extends Controller
             return redirect()->route('employees . show', $employee->MaNV);
         }
     }
+
+    public function updateEmployee(Request $request)
+    {
+        $employee = Employee::find($request->MaNV);
+
+        $rules = [
+            'TenQL' => 'required|string',
+            'GioiTinh' => 'required|in:Nam,Nu',
+            'DiaChi' => 'required|string',
+            'Email' => 'required|email',
+            'SoDienThoai' => 'required|string|min:8|max:20',
+            'Luong' => 'required|numeric',
+            'Password' => 'nullable|min:8', // Password is now optional
+        ];
+
+        $messages = [
+            'required' => 'Không được trống',
+            'GioiTinh.in' => 'Chọn Nam hoặc Nư',
+            'Email.email' => 'Phải là email',
+            'SoDienThoai.string' => 'Phải là chuỗi ký tự',
+            'Luong.numeric' => 'Phải là số',
+            'SoDienThoai.min' => 'Phải có ít nhất 8 ký tự',
+            'SoDienThoai.max' => 'Phải ít hơn 20 ký tự',
+            'Password.min' => 'Phải có ít nhất 8 ký tự',
+        ];
+
+        $validatedData = $request->validate($rules, $messages);
+
+        $dataToUpdate = [
+            'TenQL' => $validatedData['TenQL'],
+            'GioiTinh' => $validatedData['GioiTinh'],
+            'DiaChi' => $validatedData['DiaChi'],
+            'Email' => $validatedData['Email'],
+            'SoDienThoai' => $validatedData['SoDienThoai'],
+        ];
+
+        if ($request->filled('Password')) {
+            // If 'Password' is present in $validatedData
+            $dataToUpdate['Password'] = password_hash($validatedData['Password'], PASSWORD_BCRYPT);
+        }
+
+        $employee->update($dataToUpdate);
+
+        return redirect()->route('manageemployeeaccounts');
+
+        //check email uniqui
+    }
+
 
     /**
      * Remove the specified resource from storage.

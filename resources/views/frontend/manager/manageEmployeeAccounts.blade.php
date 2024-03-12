@@ -44,7 +44,7 @@
                         </div>
                         <div class="text-center">
                             <a href="{{ route('manageeminforployeeaccounts', $employee->MaNV)}}"
-                                class="text-dark text-decoration-none fs-3 fw-medium">{{$employee['TenQL']}}</a>
+                               class="text-dark text-decoration-none fs-3 fw-medium">{{$employee['TenQL']}}</a>
                         </div>
                         <div class="position-absolute" style="top:10px;left:10px">
                             <a href="{{ route('manageeminforployeeaccounts', $employee->MaNV)}}">
@@ -57,7 +57,11 @@
                                     <i class="fa-solid fa-trash-can fa-2xl" style="color: #ff0000;"></i>
                                 </button>
                             </a>
-
+{{--                            <a href="{{ route('manageemdeleteeformployeeaccounts', $employee->MaNV)}}">--}}
+{{--                                <button type="button" class="btn border-0 p-1">--}}
+{{--                                    <i class="fa-solid fa-trash-can fa-2xl" style="color: #ff0000;"></i>--}}
+{{--                                </button>--}}
+{{--                            </a>--}}
                         </div>
                     </div>
                 </div>

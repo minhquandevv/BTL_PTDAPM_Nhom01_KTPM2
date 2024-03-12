@@ -53,7 +53,7 @@ class AuthController extends Controller
                 } elseif ($userData['ChucVu'] == 'NhanVien') {
                     return redirect()->route("employeehome");
                 } else {
-                    return redirect()->route("bookinghome");
+                        return redirect()->route("bookinghome");
                 }
             } else {
                 return redirect()->back()->with('errorPass', 'Mật khẩu sai');
