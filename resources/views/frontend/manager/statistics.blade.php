@@ -2,6 +2,16 @@
 @section('content')
 
     <div class="container">
+        <form method="GET" action="{{ route('statistics') }}">
+            <label for="fromDate">From Date:</label>
+            <input type="date" value="{{ request()->get('fromDate') }}" name="fromDate" id="fromDate"/>
+
+            <label for="toDate">To Date:</label>
+            <input type="date" value="{{ request()->get('toDate') }}" name="toDate" id="toDate"/>
+
+            <button type="submit">Filter</button>
+        </form>
+
         <div class="d-flex gap-5 align-items-center my-4 justify-content-center">
             <a href="/homemanager" class="position-absolute z-0 text-dark " style="top:118px;left:45px;">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -10,49 +20,38 @@
                 <p class="fs-2 fw-medium text-center"> Doanh thu theo tháng</p>
             </div>
         </div>
-        <canvas id="myChart" width="400" height="400"></canvas>
+        {{--        <canvas id="myChart" width="400" height="400"></canvas>--}}
+        <canvas id="myChart"></canvas>
     </div>
 
     <!-- Link thư viện Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
     <!-- Script JavaScript -->
     <script>
-    // Lấy thẻ canvas theo id
-    var ctx = document.getElementById('myChart').getContext('2d');
-    // Tạo biểu đồ
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6'],
-            datasets: [{
-                label: 'Doanh thu (VNĐ)',
-                data: [5000000, 7000000, 6000000, 8000000, 9000000, 7500000],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        // Lấy thẻ canvas theo id
+        var ctx = document.getElementById('myChart').getContext('2d');
+        // Tạo biểu đồ
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {!! json_encode($monthsYearsArray) !!},
+                datasets: [{
+                    label: 'Doanh thu (VNĐ)',
+                    data: {!! json_encode($totalAmountsArray) !!},
+                    backgroundColor: {!! json_encode($backgroundColor) !!},
+                    borderColor: {!! json_encode($borderColor) !!},
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
     </script>
+
 @endsection

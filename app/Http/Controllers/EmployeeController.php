@@ -225,8 +225,7 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public
-    function update(Request $request, Employee $employee)
+    public function update(Request $request, Employee $employee)
     {
         $validatedData = $request->validate([
             'Password' => 'required',
@@ -263,6 +262,7 @@ class EmployeeController extends Controller
             'SoDienThoai' => 'required|string|min:8|max:20',
             'Luong' => 'required|numeric',
             'Password' => 'nullable|min:8', // Password is now optional
+            'NgaySinh' => 'required', // Password is now optional
         ];
 
         $messages = [
@@ -284,6 +284,7 @@ class EmployeeController extends Controller
             'DiaChi' => $validatedData['DiaChi'],
             'Email' => $validatedData['Email'],
             'SoDienThoai' => $validatedData['SoDienThoai'],
+            'NgaySinh' => $validatedData['NgaySinh'],
         ];
 
         if ($request->filled('Password')) {
@@ -298,12 +299,70 @@ class EmployeeController extends Controller
         //check email uniqui
     }
 
+    public function updatePersonalAccount(Request $request)
+    {
+        // Check if the 'userData' session key exists and has 'Ma' field
+        if (Session::has('userData') && array_key_exists('Ma', Session::get('userData'))) {
+            $employee = Employee::find(Session::get('userData')['Ma']);
+            if ($employee) {
+                $rules = [
+                    'fistName' => 'required|string',
+                    'lastName' => 'required|string',
+                    'GioiTinh' => 'required|in:Nam,Nu',
+                    'DiaChi' => 'required|string',
+                    'Email' => 'required|email',
+                    'SoDienThoai' => 'required|string|min:8|max:20',
+                    'NgaySinh' => 'required',
+                ];
+                $messages = [
+                    'fistName.required' => 'Không được trống',
+                    'lastName.required' => 'Không được trống',
+                    'required' => 'Không được trống',
+                    'GioiTinh.in' => 'Chọn Nam hoặc Nữ',
+                    'Email.email' => 'Phải là email',
+                    'SoDienThoai.string' => 'Phải là chuỗi ký tự',
+                    'SoDienThoai.min' => 'Phải có ít nhất 8 ký tự',
+                    'SoDienThoai.max' => 'Phải ít hơn 20 ký tự',
+                ];
+                $validatedData = $request->validate($rules, $messages);
+
+                $dataToUpdate = [
+                    'TenQL' => $validatedData['fistName'] . ' ' . $validatedData['lastName'],
+                    'GioiTinh' => $validatedData['GioiTinh'],
+                    'DiaChi' => $validatedData['DiaChi'],
+                    'Email' => $validatedData['Email'],
+                    'SoDienThoai' => $validatedData['SoDienThoai'],
+                    'NgaySinh' => $validatedData['NgaySinh'],
+                ];
+
+
+//                if (!password_verify($request->Password, $employee->Password)) {
+//                    return redirect()->back()->with('error', 'Mật khẩu hiện tại không đúng');
+//                } elseif ($request->MatKhauNew != $request->MatKhauNewConf) {
+//                    return redirect()->back()->with('passwordIncorrect', 'Mật khẩu mới và xác nhận không khớp');
+//                } else {
+//                    $dataToUpdate['Password'] = password_hash($validatedData['Password'], PASSWORD_BCRYPT);
+                $employee->update($dataToUpdate);
+                return view('frontend.manage_profile.customers.last');
+//                }
+
+            } else {
+                // Handle the case where the employee with the given ID is not found
+                echo json_encode(['error' => 'Employee not found']);
+            }
+        } else {
+            // Handle the case where the 'userData' session key is not set or does not have 'Ma' field
+            echo json_encode(['error' => 'Invalid session data']);
+        }
+
+
+    }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public
-    function destroy(string $id)
+    public function destroy(string $id)
     {
         $employee = Employee::find($id);
         Contact::where('MaNV', $id)->delete();

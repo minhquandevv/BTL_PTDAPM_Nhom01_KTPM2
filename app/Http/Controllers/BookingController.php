@@ -37,10 +37,11 @@ class BookingController extends Controller
     private function searchcustomerstatistics($searchQuery, $perPage)
     {
         $query = Booking::query();
-
         if ($searchQuery) {
-            $query->where('MaKH', 'like', "%{$searchQuery}%")
-                ->with('customer', 'datphong');
+            $query->with('customer', 'datphong')
+                ->whereHas('customer', function ($query) use ($searchQuery) {
+                    $query->where('TenKH', 'like', "%{$searchQuery}%");
+                });
         } else {
             $query->with('customer', 'datphong');
         }

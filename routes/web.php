@@ -159,9 +159,10 @@ Route::get('/homemanager', [HomeController::class, 'homemanager'])->name('homema
 
 
 //resources\views\frontend\manager\statistics.blade.php biểu dồ
-Route::get('statistics', function () {
-    return view('frontend.manager.statistics');
-});
+//Route::get('statistics', function () {
+//    return view('frontend.manager.statistics');
+//});
+Route::get('/statistics', [\App\Http\Controllers\PaymentController::class, 'index'])->name('statistics');
 
 
 //đã sửa
@@ -181,6 +182,7 @@ Route::match(['post', 'put'], 'updateEmploye', [\App\Http\Controllers\EmployeeCo
 Route::match(['post', 'put'], 'updateEmploye', [\App\Http\Controllers\EmployeeController::class, 'updateEmployee'])->name('updateEmployee');
 Route::get('manage_profile', [\App\Http\Controllers\EmployeeController::class, 'manage_profile'])->name('manage_profile');
 Route::get('editinfor', [\App\Http\Controllers\EmployeeController::class, 'editinfor'])->name('editinfor');
+Route::put('updatePersonalAccount', [\App\Http\Controllers\EmployeeController::class, 'updatePersonalAccount'])->name('updatePersonalAccount');
 
 //Route::get('mp1', function () {
 //    return view('frontend/manage_profile/customers/c_profile');
@@ -258,9 +260,9 @@ Route::post('personalaccountmanagement/{id}', [\App\Http\Controllers\EmployeeCon
 //    return view('frontend.manage_profile.customers.profile1');
 //});
 //new
-Route::get('completeprofile', function () {
-    return view('frontend.manage_profile.customers.last');
-});
+//Route::get('completeprofile', function () {
+//    return view('frontend.manage_profile.customers.last');
+//});
 
 Route::get('createhomestay', function () {
     return view('frontend.employee.CreateHomestay');
