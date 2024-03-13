@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DanhGia;
+
 use App\Models\Evaluate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EvaluateController extends Controller
 {
@@ -14,10 +15,12 @@ class EvaluateController extends Controller
     public function index()
     {
         // Retrieve all DanhGia records with associated KhachHang and Phong
-        $evaluates = Evaluate::paginate(2);
-
-        // Return the data as JSON
-        return response()->json($evaluates);
+        $results = DB::table('danhgia_nhanxet')
+            ->join('datphong', 'danhgia_nhanxet.MaDanhGia', '=', 'datphong.MaDatPhong')
+            ->where('datphong.MaPhong', 'like', '38')
+            ->select('danhgia_nhanxet.*')
+            ->get();
+        echo $results;
     }
 
 }

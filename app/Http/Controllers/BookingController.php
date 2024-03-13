@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class BookingController extends Controller
@@ -81,8 +82,20 @@ class BookingController extends Controller
 
     public function historyandreviews2(string $id)
     {
-        $evaluate = Booking::with('customer', 'imgroom', 'danhgia', 'room')->where('MaDatPhong', 'like', "$id")->get();
-        return view('frontend.staff.historyAndReviews_2', compact('evaluate'));
+        $evaluates = DB::table('danhgia_nhanxet')
+            ->join('datphong', 'danhgia_nhanxet.MaDanhGia', '=', 'datphong.MaDatPhong')
+            ->join('khachhang', 'khachhang.MaKH', '=', 'datphong.MaKH')
+            ->where('datphong.MaPhong', 'like', $id)
+            ->select('danhgia_nhanxet.NhanXet', 'datphong.MaPhong', 'khachhang.TenKH', 'khachhang.DuongDanAnh')
+            ->get();
+
+        $room = Room::with(['imgroom' => function ($query) {
+            $query->select('MaPhong', 'DuongDanAnh'); // Select only the necessary columns from imgroom
+        }])
+            ->where('MaP', 'like', $id)
+            ->select('MaP', 'TenPhong') // Select the necessary columns from the main "Room" table
+            ->get();
+        return view('frontend.staff.historyAndReviews_2', compact('room', 'evaluates'));
     }
 
     private function searchHistoryRooms($searchQuery, $perPage)

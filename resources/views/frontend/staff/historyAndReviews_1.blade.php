@@ -36,7 +36,7 @@
                         <h5>Giá Phòng: {{$book['room']['DonGia']}}VND </h5>
                     </div>
                     <div class="col-md-4 d-flex justify-content-end align-items-center mb-5 ">
-                        <a href="/historyandreviews2/{{$book['MaDatPhong']}}" class="text-decoration-none ">
+                        <a href="/historyandreviews2/{{$book['room']['MaP']}}" class="text-decoration-none ">
                             <p class="fs-3 fw-medium text-secondary text-danger">Xem đánh giá/phản hồi</p>
                         </a>
                     </div>

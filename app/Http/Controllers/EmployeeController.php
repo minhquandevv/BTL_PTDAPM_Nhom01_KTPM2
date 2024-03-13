@@ -26,6 +26,11 @@ class EmployeeController extends Controller
         return view('frontend/manager/add');
     }
 
+    public function changepasswordnv()
+    {
+        return view('frontend/auth/login/changepasswordnv');
+    }
+
     public function manageemployeeaccounts(Request $request)
     {
         $perPage = $request->page <= 1 ? 8 : $request->page * 8;
@@ -225,28 +230,40 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Employee $employee)
+    public function putchangepasswordnv(Request $request)
     {
-        $validatedData = $request->validate([
-            'Password' => 'required',
-            'MatKhauNew' => 'required | min:8',
-            'MatKhauNewConf' => 'required | min:8',
-        ], [
-            'Password . required' => 'Không được trống',
-            'MatKhauNew . required' => 'Không được trống',
-            'MatKhauNewConf . required' => 'Không được trống',
-            'MatKhauNew . min' => 'Phải có ít nhất 8 ký tự',
-            'MatKhauNewConf . min' => 'Phải có ít nhất 8 ký tự',
-        ]);
+        // Check if the 'userData' session key exists and has 'Ma' field
+        if (Session::has('userData') && array_key_exists('Ma', Session::get('userData'))) {
+            $employee = Employee::find(Session::get('userData')['Ma']);
+            if ($employee) {
+                $validatedData = $request->validate([
+                    'Password' => 'required',
+                    'MatKhauNew' => 'required | min:8',
+                    'MatKhauNewConf' => 'required | min:8',
+                ], [
+                    'Password.required' => 'Không được trống',
+                    'MatKhauNew.required' => 'Không được trống',
+                    'MatKhauNewConf.required' => 'Không được trống',
+                    'MatKhauNew.min' => 'Phải có ít nhất 8 ký tự',
+                    'MatKhauNewConf.min' => 'Phải có ít nhất 8 ký tự',
+                ]);
 
-        if (!password_verify($validatedData['Password'], $employee->Password)) {
-            return redirect()->back()->with('error', 'Mật khẩu hiện tại không đúng');
-        } elseif ($request->MatKhauNew != $request->MatKhauNewConf) {
-            return redirect()->back()->with('error', 'Mật khẩu mới và xác nhận không khớp');
+                if (!password_verify($validatedData['Password'], $employee->Password)) {
+                    return redirect()->back()->with('error', 'Mật khẩu hiện tại không đúng');
+                } elseif ($request->MatKhauNew != $request->MatKhauNewConf) {
+                    return redirect()->back()->with('passwordIncorrect', 'Mật khẩu mới và xác nhận không khớp');
+                } else {
+                    $hashedPasswordNew = password_hash($validatedData['MatKhauNew'], PASSWORD_BCRYPT);
+                    $employee->update(['Password' => $hashedPasswordNew]);
+                    echo "ok";
+                }
+            } else {
+                // Handle the case where the employee with the given ID is not found
+                echo json_encode(['error' => 'Employee not found']);
+            }
         } else {
-            $hashedPasswordNew = password_hash($validatedData['MatKhauNew'], PASSWORD_BCRYPT);
-            $employee->update(['Password' => $hashedPasswordNew]);
-            return redirect()->route('employees . show', $employee->MaNV);
+            // Handle the case where the 'userData' session key is not set or does not have 'Ma' field
+            echo json_encode(['error' => 'Invalid session data']);
         }
     }
 
@@ -335,13 +352,6 @@ class EmployeeController extends Controller
                     'NgaySinh' => $validatedData['NgaySinh'],
                 ];
 
-
-//                if (!password_verify($request->Password, $employee->Password)) {
-//                    return redirect()->back()->with('error', 'Mật khẩu hiện tại không đúng');
-//                } elseif ($request->MatKhauNew != $request->MatKhauNewConf) {
-//                    return redirect()->back()->with('passwordIncorrect', 'Mật khẩu mới và xác nhận không khớp');
-//                } else {
-//                    $dataToUpdate['Password'] = password_hash($validatedData['Password'], PASSWORD_BCRYPT);
                 $employee->update($dataToUpdate);
                 return view('frontend.manage_profile.customers.last');
 //                }

@@ -95,6 +95,14 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="{{route('changepasswordnv')}}" class="text-decoration-none">
+                                        <button class="dropdown-item  border-bottom border-secondary-subtler py-2 fs-6"
+                                                type="button" style="border-color:blueviolet">Thay đổi mật khẩu
+                                        </button>
+
+                                    </a>
+                                </li>
+                                <li>
                                     <button class="dropdown-item py-2 fs-6" type="button">Trung tâm hỗ trợ</button>
                                 </li>
                                 <li>

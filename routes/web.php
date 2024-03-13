@@ -183,15 +183,21 @@ Route::match(['post', 'put'], 'updateEmploye', [\App\Http\Controllers\EmployeeCo
 Route::get('manage_profile', [\App\Http\Controllers\EmployeeController::class, 'manage_profile'])->name('manage_profile');
 Route::get('editinfor', [\App\Http\Controllers\EmployeeController::class, 'editinfor'])->name('editinfor');
 Route::put('updatePersonalAccount', [\App\Http\Controllers\EmployeeController::class, 'updatePersonalAccount'])->name('updatePersonalAccount');
+Route::get('changepasswordnv', [\App\Http\Controllers\EmployeeController::class, 'changepasswordnv'])->name('changepasswordnv');
+Route::put('putchangepasswordnv', [\App\Http\Controllers\EmployeeController::class, 'putchangepasswordnv'])->name('putchangepasswordnv');
 
 //Route::get('mp1', function () {
 //    return view('frontend/manage_profile/customers/c_profile');
 //});
 
-// thêm nhân viên thành công
-Route::get('addemployeesuccess', function () {
-    return view('frontend.manager.addsuccess');
+Route::get('changepasswordsuccess', function () {
+    return view('frontend/auth/login/changepasswordsuccess');
 });
+//Route::get('changepasswordnv', function () {
+//    return view('frontend/auth/login/changepasswordnv');
+//});
+
+
 // sửa tt nv
 Route::get('editemployee', function () {
     return view('frontend.manager.edit');

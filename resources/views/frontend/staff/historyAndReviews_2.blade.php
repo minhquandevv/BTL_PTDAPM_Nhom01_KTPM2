@@ -13,14 +13,14 @@
             </div>
             <div class=" my-5">
                 <div class="mt-4 ms-3">
-                    <p class="text-center fw-medium fs-3">{{$evaluate[0]['room']['TenPhong']}}</p>
+                    <p class="text-center fw-medium fs-3">{{$room[0]->TenPhong}}</p>
                 </div>
 
                 <div class="d-flex justify-content-center mx-4 mt-4">
                     <div class="my-3">
-                        @if(isset($evaluate[0]['imgroom'][0]['DuongDanAnh']))
+                        @if(isset($room['imgroom']['DuongDanAnh']))
                             <img class="card-img-top rounded-5"
-                                 src="{{ asset($evaluate[0]['imgroom'][0]['DuongDanAnh']) }}" alt=""
+                                 src="{{ asset($room[0]->imgroom->DuongDanAnh) }}" alt=""
                                  style="width: 415px; height:326px"/>
 
                         @else
@@ -31,29 +31,31 @@
                 </div>
             </div>
 
-            <div class="border rounded-4 mb-5">
-                @if(isset($evaluate[0]['danhgia']['NhanXet']))
-                    <div class="d-flex">
-                        <div class="p-4 d-flex justify-content-start ">
-                            @if(isset($evaluate[0]['customer']['DuongDanAnh']))
-                                <img class="card-img-top rounded-5"
-                                     src="{{ asset($evaluate[0]['customer']['DuongDanAnh']) }}" alt=""
-                                     style="width:80px; height:80px">
-
-                            @else
-                                <img src="https://i.upanh.org/2024/02/27/image-338f9269a01ee5bd98.png"
-                                     alt="image-338f9269a01ee5bd98.png" style="width:80px; height:80px">
-                            @endif
-
+            <div class="">
+                @if(count($evaluates) > 0)
+                    @foreach($evaluates as $evaluate)
+                        <div class="d-flex border rounded-4 mb-5">
+                            <div class="p-4 d-flex justify-content-start">
+                                @if(isset($evaluate->DuongDanAnh))
+                                    <img class="card-img-top rounded-5"
+                                         src="{{ asset($evaluate->DuongDanAnh) }}" alt=""
+                                         style="width:80px; height:80px">
+                                @else
+                                    <img src="https://via.placeholder.com/80x80.png/0044ee?text=customer1"
+                                         alt="image-338f9269a01ee5bd98.png" style="width:80px; height:80px">
+                                @endif
+                            </div>
+                            <div class="py-3">
+                                <a href="#"
+                                   class="text-dark text-decoration-none fs-3 fw-medium">{{$evaluate->TenKH}}</a>
+                                <p class="fw-medium fs-4">{{$evaluate->NhanXet}}</p>
+                            </div>
                         </div>
-                        <div class="py-3">
-                            <a href="#"
-                               class="text-dark text-decoration-none fs-3 fw-medium">{{$evaluate[0]['customer']['TenKH']}}</a>
-                            <p class="fw-medium fs-4">{{$evaluate[0]['danhgia']['NhanXet']}}</p>
-                        </div>
-                    </div>
+                    @endforeach
                 @else
-                    <p>Khong co danh gia nao</p>
+                    <div class="d-flex align-items-center border rounded-4 mb-5 " style="height: 100px">
+                        <p class="fw-medium fs-4">Không có đánh giá nào</p>
+                    </div>
                 @endif
             </div>
         </div>

@@ -15,6 +15,10 @@ class PaymentController extends Controller
     {
         $fromDate = $request->fromDate;
         $toDate = $request->toDate;
+        if (!$fromDate || !$toDate) {
+            $fromDate = '0000-00-00';
+            $toDate = now(); // Assuming the current date as the default end date
+        }
         $statistics = Payment::select(
             DB::raw('YEAR(NgayThanhToan) AS Nam'),
             DB::raw('MONTH(NgayThanhToan) AS Thang'),
